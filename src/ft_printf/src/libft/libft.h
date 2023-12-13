@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 18:05:28 by mescobar          #+#    #+#             */
-/*   Updated: 2023/11/30 01:21:53 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/12 16:04:03 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
+void	*ft_realloc(char *pt, size_t size);
 int		ft_strsrch(char *s1, char *s2);
 int		ft_isalpha(int c);
 size_t	ft_strlen(const char *chain);

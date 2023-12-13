@@ -38,6 +38,7 @@ FILES_C = ${SOURCE}ft_isalpha.c \
 	${SOURCE}ft_putnbr_fd.c \
 	${SOURCE}get_next_line_bonus.c \
 	${SOURCE}ft_strsrch.c \
+	${SOURCE}ft_realloc.c \
 
 FILES_C_BONUS = ft_lstnew.c \
 		ft_lstadd_front.c \

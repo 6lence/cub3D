@@ -1,53 +1,52 @@
 MAKEFLAGS += --silent
 
-SRC_DIR := ./src
+SRC = ./src/
 
-SRC_FILES := main.c \
-			ft_verif_file.c 
+FILES_C =	$(SRC)main.c \
+			$(SRC)ft_verif_file.c \
+			$(SRC)ft_parsing_file.c \
+			$(SRC)ft_parsing_file_rgb.c \
+			$(SRC)ft_parsing_file_texture.c \
+			$(SRC)ft_parsing_map.c \
+			$(SRC)ft_parsing_map_spaces.c 
 
-OBJ_DIR := ./obj
+LIBFT_PATH = ${SRC}ft_printf/
 
-EXEC := cub3D
+MLX_PATH = ./minilibx-linux/
 
-OBJ_FILES := $(addprefix $(OBJ_DIR)/,$(SRC_FILES:.c=.o))
+LIBFT = -L ${LIBFT_PATH} -lftprintf
 
-CC := gcc
+MLX = -L ${MLX_PATH} -lmlx -lXext -lX11
 
-CFLAGS := -Wall -Wextra -Werror -lm -g
+FILES_O = ${FILES_C:.c=.o}
 
-LFT := ./ft_printf/libftprintf.a
-LIB := $(SRC_DIR)/ft_printf -lftprintf
+FILES_H = ./cub3d.h
 
-MLX_PATH := ./minilibx-linux
-MLX := -L $(MLX_PATH) -lmlx -lXext -lX11
+CFLAGS = -Wall -Wextra -Werror -g
 
-all: $(OBJ_DIR) $(LFT) $(EXEC)
+CC = gcc
 
-RM := rm -f
+NAME = cub3D
 
-$(OBJ_DIR):
-	@mkdir -p $(OBJ_DIR)
+all: ${NAME}
 
-$(LFT):
-	@make -s -C $(SRC_DIR)/ft_printf/ all
+${LIBFT}:
+	@make -C ${LIBFT_PATH} all bonus
+	@make -C ${MLX_PATH}
 
-$(EXEC): $(OBJ_FILES)
-	@$(CC) $(CFLAGS) $^ $(LIB) $(MLX) -o $@
-	@echo "\033[32m✅ Done! Executable $(EXECUTABLE) is ready.\033[0m"
-
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+${NAME}: ${LIBFT} ${FILES_O}
+	${CC} ${FLAGS} ${FILES_O} ${MLX} ${LIBFT} -I ${FILES_H} -o ${NAME} -lm \
+		&& echo "Make done successfully." \ || echo "Doesn't work, sadge. :c"
 
 clean:
-	@$(RM) -r $(OBJ_DIR)
-	@make -s -C $(SRC_DIR)/ft_printf/ clean
-	@echo "\033[32m✅ Done! Object files removed.\033[0m"
+	rm -f ${FILES_O}
+	make -C ${LIBFT_PATH} clean
+	make -C ${MLX_PATH} clean
 
 fclean: clean
-	@$(RM) $(EXECUTABLE)
-	@make -s -C $(SRC_DIR)/ft_printf/ fclean
-	@echo "\033[32m✅ Done! Executable $(EXECUTABLE) removed.\033[0m"
+	rm -f ${NAME}
+	rm -rf ./execute
+	make -C ${LIBFT_PATH} fclean \
+	&& echo "Fclean done successfully." \ || echo "Haha your fclean suck."
 
 re: fclean all
-
-.PHONY: all clean fclean re
