@@ -6,18 +6,31 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:22:58 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/13 14:10:35 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/14 17:35:22 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_check_map_validity(t_data *l, char **map, int i)
+int	ft_check_map_validity(t_data *l, char **map, int i, int *b)
 {
+	int	c;
+
+	c = 0;
+	while ((map[i][c] && map[i][c] == 32)
+		|| (map[i][c] > 6 && map[i][c] < 14))
+		c++;
+	if (map[i][c] && (map[i][c] <= 'Z' && map[i][c] >= 'A'))
+		return (0);
+	printf("C: %d | Len: %d\n", *b, l->pars->map_len);
+	*b = *b + 1;
 	if (ft_check_direction(l, map[i]))
 		return (1);
-	if (ft_check_ceiling(l, map[i], i) || ft_check_walls(l, map, i))
+	if (ft_check_ceiling(l, map[i], *b) )//|| ft_check_walls(l, map, i))
 		return (1);
+	if (ft_check_walls(l, map, i, *b))
+		return (1);
+	return (0);
 }
 
 void	ft_get_texture_variable(t_data *l, char *str)
@@ -50,7 +63,7 @@ void	ft_get_texture_variable(t_data *l, char *str)
 	}
 }
 
-void	ft_verif_f_c(t_data *l, int i)	
+void	ft_verif_f_c(t_data *l, int i)
 {
 	int	j;
 	int	err;
@@ -92,20 +105,23 @@ void	ft_get_map_len(t_data *l, char *str)
 int ft_parsing_file(t_data *l)
 {
     int i;
+	int	b;
 
-    i = 0;
 	l->ft_err = 0;
 	l->pars->pos = 0;
 	ft_verify_rgb_values(l);
+    i = 0;
 	while (l->file[i])
 		ft_get_map_len(l, l->file[i++]);
 	i = 0;
 	l->pars->direct_iterations = 0;
+	b = 0;
     while (l->file[i] && !l->ft_err)
     {
+										printf("%s\n", l->file[i]);
 		ft_verif_f_c(l, i);
 		ft_get_texture_variable(l, l->file[i]);
-		if (ft_check_map_validity(l, l->file[i], i))
+		if (ft_check_map_validity(l, l->file, i, &b))
 			return (perror("Error: map not valid "), 1);
         i++;
     }

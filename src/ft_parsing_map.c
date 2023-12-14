@@ -6,19 +6,18 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:45:18 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/13 14:10:08 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/14 17:00:55 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_check_direction(t_data *l, char **map)
+int	ft_check_direction(t_data *l, char *map)
 {
-	int		i;
 	int		j;
 
 	j = -1;
-	while (map[j++])
+	while (map[++j])
 	{
 		if (map[j] == 'N' || map[j] == 'S'
 			|| map[j] == 'E' || map[j] == 'W')
@@ -27,42 +26,46 @@ int	ft_check_direction(t_data *l, char **map)
 			l->pars->direction = map[j];
 		}
 	}
-	if (l->pars->direct_iterations != 1)
+	if (l->pars->direct_iterations != 0
+		&& l->pars->direct_iterations != 1)
 		return (1);
 	return (0);
 }
 
-int	ft_check_walls(t_data *l, char **map, int c)
+int	ft_check_walls(t_data *l, char **map, int c, int b)
 {
 	int	i;
 
-	if (c != 0 && c != l->pars->map_len)
+	if (b > 0 && b < l->pars->map_len)
 	{
 		i = 0;
-		while (map[i] == 32 || map[i] < 14 && map[i] > 6)
+		while ((map[c][i] && map[c][i] == 32)
+			|| (map[c][i] < 14 && map[c][i] > 6))
 			i++;
-		if (map[i + 1] && map[i + 1] != '1')
+		if (map[c][i] && map[c][i] != '1')
 			return (1);
-		i = ft_strlen(map);
-		while (map[i] == 32 || map[i] < 14 && map[i] > 6)
-			i--;
-		if (map[i - 1] && map[i - 1] != '1')
+		i = ft_strlen(map[c]);
+		while ((map[c][i] && map[c][i] == 32)
+			|| (map[c][i] < 14 && map[c][i] > 6))
+			i++;
+		if (map[c][i - 1] && map[c][i - 1] != '1')
 			return (1);
-		ft_check_spaces_proximity(l, map);
+		if (ft_check_spaces_proximity(l, map, c))
+			return (1);
 	}
+	return (0);
 }
 
-int	ft_check_ceiling(t_data *l, char **map, int i)
+int	ft_check_ceiling(t_data *l, char *map, int i)
 {
-	int	j;
+	size_t	j;
 
 	if (i == 0 || i == l->pars->map_len)
 	{
 		j = 0;
-		while (map[i][j] && (map[i][j] == ' '
-			|| map[i][j] == '1'))
+		while (map[j] && (map[j] == ' ' || map[j] == '1'))
 			j++;
-		if (j != ft_strlen(map[i][j]))
+		if (j != ft_strlen(map))
 			return (1);
 	}
 	return (0);

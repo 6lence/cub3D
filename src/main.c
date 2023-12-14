@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:35:10 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/13 13:07:50 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/14 14:40:56 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ void	ft_print_values(t_data *l)
 
 void	ft_initiate(t_data *l)
 {
-	l->tex = ft_calloc(sizeof(t_tex));
-	l->tex->F = ft_calloc(sizeof(t_rgb));
-	l->tex->C = ft_clloc(sizeof(t_rgb));
-	l->pars = ft_calloc(1, sizeof(t_pars));
+	l->tex = ft_calloc(sizeof(t_tex), 1);
+	l->tex->F = ft_calloc(sizeof(t_rgb), 1);
+	l->tex->C = ft_calloc(sizeof(t_rgb), 1);
+	l->pars = ft_calloc(sizeof(t_pars), 1);
 }
 
 int	main(int ac, char **ag)
