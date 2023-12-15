@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:45:18 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/14 17:00:55 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/15 12:03:24 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,10 +96,9 @@ int	ft_get_map(t_data *l, char **str)
 	int	i;
 
 	i = 0;
-	l->map = ft_calloc(sizeof(char *), l->pars->map_len);
-	if (!l->map || !l->map[0])
-		return (1);
+	l->map = ft_calloc(sizeof(char *), l->pars->map_len + 1);
 	while (str[i])
 		ft_alloc_map(l, str[i++]);
+	l->map[l->pars->pos] = NULL;
 	return (0);
 }

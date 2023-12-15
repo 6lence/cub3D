@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:22:58 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/14 17:35:22 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/15 11:53:42 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	ft_check_map_validity(t_data *l, char **map, int i, int *b)
 		c++;
 	if (map[i][c] && (map[i][c] <= 'Z' && map[i][c] >= 'A'))
 		return (0);
-	printf("C: %d | Len: %d\n", *b, l->pars->map_len);
 	*b = *b + 1;
 	if (ft_check_direction(l, map[i]))
 		return (1);
@@ -118,7 +117,6 @@ int ft_parsing_file(t_data *l)
 	b = 0;
     while (l->file[i] && !l->ft_err)
     {
-										printf("%s\n", l->file[i]);
 		ft_verif_f_c(l, i);
 		ft_get_texture_variable(l, l->file[i]);
 		if (ft_check_map_validity(l, l->file, i, &b))

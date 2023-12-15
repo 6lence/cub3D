@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 13:30:51 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/14 17:35:29 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/15 12:00:33 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ int	ft_check_proximity(char **str, int i, size_t *j)
 	while (str[i][*j] && str[i][*j] == ' ')
 	{
 		if ((str[i][*j - 1]
-			&& (str[i][*j - 1] != '1' || str[i][*j - 1] != ' '))
+			&& (str[i][*j - 1] != '1' && str[i][*j - 1] != ' '))
 			|| (str[i][*j + 1]
-			&& (str[i][*j + 1] != '1' || str[i][*j + 1] != ' '))
+			&& (str[i][*j + 1] != '1' && str[i][*j + 1] != ' '))
 			|| (str[i - 1][*j]
-			&& (str[i - 1][*j] != '1' || str[i - 1][*j] != ' '))
+			&& (str[i - 1][*j] != '1' && str[i - 1][*j] != ' '))
 			|| (str[i + 1][*j]
-			&& (str[i + 1][*j] != '1' || str[i + 1][*j] != ' ')))
+			&& (str[i + 1][*j] != '1' && str[i + 1][*j] != ' ')))
 			return (1);
 		*j = *j + 1;
 	}
@@ -35,7 +35,6 @@ int	ft_check_spaces_proximity(t_data *l, char **str, int i)
 	size_t	j;
 
 	(void)l;
-	printf("no\n");
 	j = 0;
 	while (str[i][j] && (str[i][j] == 32 || str[i][j] == '1'))
 		j++;
@@ -45,7 +44,6 @@ int	ft_check_spaces_proximity(t_data *l, char **str, int i)
 	{
 		while (str[i][j])
 		{
-			printf("  h  ");
 			if (str[i][j] == 32 && ft_check_proximity(str, i, &j))
 				return (1);
 			j++;
