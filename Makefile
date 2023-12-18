@@ -18,15 +18,15 @@ OBJ_DIR = obj
 INCLUDES = -I$(INC_DIR) $(LIBFT_INC) $(MINILIBX_INC)
 
 SRC_FILES = main.c \
-			ft_verif_file.c \
-			ft_parsing_file.c \
-			ft_parsing_file_rgb.c \
-			ft_parsing_file_texture.c \
-			ft_parsing_map.c \
-			ft_parsing_map_spaces.c \
-			ft_key_hook.c \
-			ft_image.c \
-			ft_free.c
+			parsing/ft_verif_file.c \
+			parsing/ft_parsing_file.c \
+			parsing/ft_parsing_file_rgb.c \
+			parsing/ft_parsing_file_texture.c \
+			parsing/ft_parsing_map.c \
+			parsing/ft_parsing_map_spaces.c \
+			mlx/ft_key_hook.c \
+			mlx/ft_image.c \
+			utils/ft_free.c
 
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
