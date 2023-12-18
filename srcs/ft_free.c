@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 12:30:08 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/18 13:55:20 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/18 14:15:21 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	ft_free_mlx(t_mlxdata *l)
 {
 	mlx_destroy_window(l->mlx_ptr, l->win_ptr);
 	mlx_destroy_display(l->mlx_ptr);
+	free(l->mlx_ptr);
 	free(l);
 }
 
