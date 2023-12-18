@@ -10,6 +10,7 @@
 
 ## Please use configure script
 
+MAKEFLAGS += --silent
 
 INC	=%%%%
 

@@ -11,6 +11,7 @@ INC=/usr/include
 
 ## Please use configure script
 
+MAKEFLAGS += --silent
 
 
 UNAME = $(shell uname)

@@ -1,3 +1,5 @@
+MAKEFLAGS += --silent
+
 HEADER = ./
 
 SRC = ./src/
@@ -49,4 +51,3 @@ fclean: clean
 	rm -f ${NAME}
 
 re: fclean all
-

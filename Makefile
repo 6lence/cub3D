@@ -1,55 +1,91 @@
-MAKEFLAGS += --silent
-
-SRC = ./src/
-
-FILES_C =	$(SRC)main.c \
-			$(SRC)ft_verif_file.c \
-			$(SRC)ft_parsing_file.c \
-			$(SRC)ft_parsing_file_rgb.c \
-			$(SRC)ft_parsing_file_texture.c \
-			$(SRC)ft_parsing_map.c \
-			$(SRC)ft_parsing_map_spaces.c \
-			$(SRC)ft_key_hook.c \
-			$(SRC)ft_image.c \
-			$(SRC)ft_free.c 
-
-LIBFT_PATH = ${SRC}ft_printf/
-
-MLX_PATH = ./minilibx-linux/
-
-LIBFT = -L ${LIBFT_PATH} -lftprintf
-
-MLX = -L ${MLX_PATH} -lmlx -lXext -lX11
-
-FILES_O = ${FILES_C:.c=.o}
-
-FILES_H = ./cub3d.h
-
+NAME = Cub3D
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
 
-CC = gcc
+LIBFT = ft_printf/libftprintf.a
+LIBFT_DIR = ft_printf/
+LIBFT_INC = -I $(LIBFT_DIR)/ -lftprintf
 
-NAME = cub3D
+MINILIBX = $(MINILIBX_DIR)/libmlx.a
+MINILIBX_DIR = minilibx-linux/
+MINILIBX_INC = -I $(MINILIBX_DIR)/
+MINILIBX_LINK = -L$(MINILIBX_DIR) -lmlx -lXext -lX11 -lm
 
-all: ${NAME}
+INC_DIR = includes
+SRC_DIR = srcs
+OBJ_DIR = obj
 
-${LIBFT}:
-	@make -C ${LIBFT_PATH} all bonus
-	@make -C ${MLX_PATH}
+INCLUDES = -I$(INC_DIR) $(LIBFT_INC) $(MINILIBX_INC)
 
-${NAME}: ${LIBFT} ${FILES_O}
-	${CC} ${FLAGS} ${FILES_O} ${MLX} ${LIBFT} -I ${FILES_H} -o ${NAME} -lm \
-		&& echo "Make done successfully." \ || echo "Doesn't work, sadge. :c"
+SRC_FILES = main.c \
+			ft_verif_file.c \
+			ft_parsing_file.c \
+			ft_parsing_file_rgb.c \
+			ft_parsing_file_texture.c \
+			ft_parsing_map.c \
+			ft_parsing_map_spaces.c \
+			ft_key_hook.c \
+			ft_image.c \
+			ft_free.c
+
+SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
+OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+
+# Colors
+RESET = \033[0m
+GREEN = \033[32m
+ORANGE_Q = \033[38;2;230;126;34m
+GREEN_Q = \033[38;2;60;120;60m
+BROWN_Q = \033[38;2;139;69;19m
+GREEN_M = \033[38;2;170;180;90m
+YELLOW = \033[33m
+RED = \033[31m
+BLUE = \033[34m
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	@$(MAKE) -C $(LIBFT_DIR)
+	@$(MAKE) -C $(MINILIBX_DIR)
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(MINILIBX) $(MINILIBX_LINK) -o $(NAME)
+	@echo "$(GREEN)Compilation successful!$(RESET)"
+	@sleep 0
+	@clear
+	@echo "$(GREEN_Q)__| |___________________________________________________________| |__$(RESET)";
+	@echo "$(GREEN_Q)__   ___________________________________________________________   __$(RESET)";
+	@echo "$(GREEN_Q)  | |                                                           | |  $(RESET)";
+	@echo "$(GREEN_Q)  | |                                                           | |  $(RESET)";
+	@echo "$(GREEN_Q)  | |        $(GREEN_M)  ██████╗██╗   ██╗██████╗ ██████╗ ██████╗  $(GREEN_Q)        | |  $(RESET)";
+	@echo "$(GREEN_Q)  | |        $(GREEN_M) ██╔════╝██║   ██║██╔══██╗╚════██╗██╔══██╗ $(GREEN_Q)        | |  $(RESET)";
+	@echo "$(GREEN_Q)  | |        $(GREEN_M) ██║     ██║   ██║██████╔╝ █████╔╝██║  ██║ $(GREEN_Q)        | |  $(RESET)";
+	@echo "$(GREEN_Q)  | |        $(GREEN_M) ██║     ██║   ██║██╔══██╗ ╚═══██╗██║  ██║ $(GREEN_Q)        | |  $(RESET)";
+	@echo "$(GREEN_Q)  | |        $(GREEN_M) ╚██████╗╚██████╔╝██████╔╝██████╔╝██████╔╝ $(GREEN_Q)        | |  $(RESET)";
+	@echo "$(GREEN_Q)  | |        $(GREEN_M)  ╚═════╝ ╚═════╝ ╚═════╝ ╚═════╝ ╚═════╝  $(GREEN_Q)        | |  $(RESET)";
+	@echo "$(GREEN_Q)  | |                 $(BROWN_Q)by mescobar and qbanet$(GREEN_Q)                    | |  $(RESET)";
+	@echo "$(GREEN_Q)__| |___________________________________________________________| |__$(RESET)";
+	@echo "$(GREEN_Q)__   ___________________________________________________________   __$(RESET)";
+	@echo "$(GREEN_Q)  | |                                                           | |  $(RESET)";
+	@echo ""
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	@echo "$(BLUE)Compiling: $<$(RESET)"
 
 clean:
-	rm -f ${FILES_O}
-	make -C ${LIBFT_PATH} clean
-	make -C ${MLX_PATH} clean
+	@$(MAKE) -s -C $(LIBFT_DIR) clean
+	@$(MAKE) -C $(MINILIBX_DIR) clean
+	@rm -rf $(OBJ_DIR)
+	@echo "$(YELLOW)Cleaning object files...$(RESET)"
 
-fclean: clean
-	rm -f ${NAME}
-	rm -rf ./execute
-	make -C ${LIBFT_PATH} fclean \
-	&& echo "Fclean done successfully." \ || echo "Haha your fclean suck."
+fclean:
+	@$(MAKE) -s -C $(LIBFT_DIR) fclean
+	@$(MAKE) -C $(MINILIBX_DIR) clean
+	@rm -rf $(OBJ_DIR)
+	@echo "$(YELLOW)Cleaning object files...$(RESET)"
+	@rm -f $(NAME)
+	@echo "$(RED)Full clean completed!$(RESET)"
 
 re: fclean all
+
+.PHONY: all clean fclean re

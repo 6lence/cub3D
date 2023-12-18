@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:34:43 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/18 12:47:40 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/18 19:43:21 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@
 # include <fcntl.h>
 
 		//  libft.h //
-# include "./ft_printf/ft_printf.h"
+# include "ft_printf.h"
 		// mlx.h //
-# include "../minilibx-linux/mlx.h"
+# include "mlx.h"
 
 typedef struct s_rgb
 {

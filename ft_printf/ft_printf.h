@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 11:41:19 by mescobar          #+#    #+#             */
-/*   Updated: 2023/09/03 17:21:49 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/18 19:48:37 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdarg.h>
 # include <unistd.h>
-# include "./src/libft/libft.h"
+# include "src/libft/libft.h"
 # include <stdio.h>
 
 typedef struct s_printf
