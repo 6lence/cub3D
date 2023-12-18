@@ -1,33 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_image.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/08 16:29:53 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/18 13:36:06 by mescobar         ###   ########.fr       */
+/*   Created: 2023/12/18 12:28:07 by mescobar          #+#    #+#             */
+/*   Updated: 2023/12/18 12:28:48 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "cub3d.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+int	ft_image(t_data *l)
 {
-	char	*chain;
-	size_t	len;
-	size_t	i;
-
-	if (!s1 || !s2)
-		return (NULL);
-	len = ft_strlen(s1) + ft_strlen(s2) + 1;
-	chain = ft_calloc(len, sizeof(char));
-	if (!chain)
-		return (NULL);
-	i = 0;
-	while (*s1)
-		chain[i++] = *s1++;
-	while (*s2)
-		chain[i++] = *s2++;
-	return (chain);
+	(void)l;
+	return (0);
 }

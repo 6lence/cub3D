@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:38:23 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/13 12:51:06 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/18 13:38:06 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_open_file(t_data *l, char *s)
 	{
 		r = read(l->file_fd, buffer, 1024);
 		buffer[r] = '\0';
-		line = ft_strjoin(line, buffer);
+		line = ft_strjoin2(line, buffer);
 	}
 	l->file = ft_split(line, '\n');
 	free(buffer);

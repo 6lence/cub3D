@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:34:43 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/15 12:16:02 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/18 12:47:40 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ typedef struct s_data
 	int					file_fd;
 	int					ft_err;
 	char				**file;
+	char				**map;
 	struct s_mlxdata	*mlx;
 	struct s_camera		*cam;
 	struct s_pars		*pars;
@@ -113,5 +114,13 @@ int		ft_check_direction(t_data *l, char *map);
 		/*	ft_parsing_map_spaces */
 int		ft_check_spaces_proximity(t_data *l, char **str, int i);
 int		ft_check_proximity(char **str, int i, size_t *j);
+
+		/*  ft_key_hook	*/
+int		ft_key_hook(int	key, t_data *l);
+
+		/*	ft_image  */
+int		ft_image(t_data *l);
+
+void	ft_free(t_data *l);
 
 #endif

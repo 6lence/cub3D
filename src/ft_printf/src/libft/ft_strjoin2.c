@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 01:18:02 by mescobar          #+#    #+#             */
-/*   Updated: 2023/11/30 01:21:38 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/18 13:39:42 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,22 @@
 
 char	*ft_strjoin2(char *s1, char *s2)
 {
-	char	*res;
+	char	*chain;
+	size_t	len;
 	size_t	i;
-	size_t	j;
+	char	*tmp;
 
 	if (!s1 || !s2)
 		return (NULL);
-	if (!s1)
-		return (ft_strdup(s2));
-	if (!s2)
-		return (ft_strdup(s1));
-	res = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
-	if (!res)
+	len = ft_strlen(s1) + ft_strlen(s2) + 1;
+	chain = ft_calloc(len, sizeof(char));
+	if (!chain)
 		return (NULL);
 	i = 0;
-	j = 0;
-	while (s1[i])
-		res[j++] = s1[i++];
-	i = 0;
-	while (s2[i])
-		res[j++] = s2[i++];
-	return (res[i] = 0, free(s1), res);
+	tmp = s1;
+	while (*s1)
+		chain[i++] = *s1++;
+	while (*s2)
+		chain[i++] = *s2++;
+	return (free(tmp), chain);
 }

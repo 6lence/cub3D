@@ -8,7 +8,10 @@ FILES_C =	$(SRC)main.c \
 			$(SRC)ft_parsing_file_rgb.c \
 			$(SRC)ft_parsing_file_texture.c \
 			$(SRC)ft_parsing_map.c \
-			$(SRC)ft_parsing_map_spaces.c 
+			$(SRC)ft_parsing_map_spaces.c \
+			$(SRC)ft_key_hook.c \
+			$(SRC)ft_image.c \
+			$(SRC)ft_free.c 
 
 LIBFT_PATH = ${SRC}ft_printf/
 

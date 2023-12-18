@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_key_hook.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/08 16:29:53 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/18 13:36:06 by mescobar         ###   ########.fr       */
+/*   Created: 2023/12/18 12:14:02 by mescobar          #+#    #+#             */
+/*   Updated: 2023/12/18 12:48:58 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "cub3d.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+int	ft_key_hook(int	key, t_data *l)
 {
-	char	*chain;
-	size_t	len;
-	size_t	i;
-
-	if (!s1 || !s2)
-		return (NULL);
-	len = ft_strlen(s1) + ft_strlen(s2) + 1;
-	chain = ft_calloc(len, sizeof(char));
-	if (!chain)
-		return (NULL);
-	i = 0;
-	while (*s1)
-		chain[i++] = *s1++;
-	while (*s2)
-		chain[i++] = *s2++;
-	return (chain);
+	if (key == XK_Escape)
+		return (ft_free(l), exit(EXIT_SUCCESS), 0);
+	return (0);
 }
