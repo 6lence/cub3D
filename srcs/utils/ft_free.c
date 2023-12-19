@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 12:30:08 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/18 14:15:21 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/19 18:36:22 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,13 @@ void	ft_free_mlx(t_mlxdata *l)
 	free(l);
 }
 
+void	ft_free_back(t_data *l)
+{
+	if (l->back->img_ptr)
+		mlx_destroy_image(l->mlx->mlx_ptr, l->back->img_ptr);
+	free(l->back);
+}
+
 void	ft_free(t_data *l)
 {
 	if (l)
@@ -63,6 +70,8 @@ void	ft_free(t_data *l)
 			free(l->pars);
 		if (l->tex)
 			ft_free_textures(l->tex);
+		if (l->back->img_ptr)
+			mlx_destroy_image(l->mlx->mlx_ptr, l->back->img_ptr);
 		free(l);
 	}
 }

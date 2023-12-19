@@ -24,8 +24,11 @@ SRC_FILES = main.c \
 			parsing/ft_parsing_file_texture.c \
 			parsing/ft_parsing_map.c \
 			parsing/ft_parsing_map_spaces.c \
+			mlx/ft_mlx_main.c \
 			mlx/ft_key_hook.c \
 			mlx/ft_image.c \
+			mlx/ft_background_image.c \
+			mlx/ft_put_pixel.c \
 			utils/ft_free.c
 
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))

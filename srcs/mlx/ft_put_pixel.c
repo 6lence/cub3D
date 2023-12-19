@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_image.c                                         :+:      :+:    :+:   */
+/*   ft_put_pixel.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 12:28:07 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/19 17:14:22 by mescobar         ###   ########.fr       */
+/*   Created: 2023/12/19 17:28:19 by mescobar          #+#    #+#             */
+/*   Updated: 2023/12/19 18:17:50 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_create_image(t_data *l)
+void	ft_put_pixel(t_data *l, t_rgb *Color, int i, int j)
 {
-	(void)l;
-}
+	int 			pixel;
+	unsigned int	color;
 
-int	ft_image(t_data *l)
-{
-	l->mlx->img_ptr = mlx_new_image(l->mlx->mlx_ptr, 
-						l->mlx->win_w, l->mlx->win_h);
-	l->mlx->img_adr = mlx_get_data_addr(l->mlx->img_ptr,
-						&l->mlx->bpp, &l->mlx->line, &l->mlx->endian);
-	ft_create_image(l);
-	mlx_put_image_to_window(l->mlx->mlx_ptr, l->mlx->win_ptr,
-							l->mlx->img_ptr, 0, 0);
-	return (0);
+	pixel = (i * l->back->line) + (j + (l->back->bpp / 8));
+	color = (Color->r << 16) | (Color->g << 8) | Color->b;
+	l->back->img_adr[pixel] = color;
 }

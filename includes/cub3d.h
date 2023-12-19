@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:34:43 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/18 19:43:21 by qbanet           ###   ########.fr       */
+/*   Updated: 2023/12/19 18:00:07 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,62 +23,9 @@
 # include <sys/types.h>
 # include <fcntl.h>
 
-		//  libft.h //
 # include "ft_printf.h"
-		// mlx.h //
 # include "mlx.h"
-
-typedef struct s_rgb
-{
-	int	r;
-	int	g;
-	int	b;
-}		t_rgb;
-
-
-typedef struct s_tex
-{
-	char			*no;
-	char			*so;
-	char			*we;
-	char			*ea;
-	struct s_rgb	*F;
-	struct s_rgb	*C;
-}					t_tex;
-
-
-typedef struct s_pars
-{
-	int			map_len;
-	int			pos;
-	int			direct_iterations;
-	char		direction;
-}				t_pars;
-
-typedef struct s_mlxdata
-{
-	void	*mlx_ptr;
-	void	*win_ptr;
-	int		win_h;
-	int		win_w;
-}			t_mlxdata;
-
-typedef struct s_camera
-{
-	//something;
-}			t_camera;
-
-typedef struct s_data
-{
-	int					file_fd;
-	int					ft_err;
-	char				**file;
-	char				**map;
-	struct s_mlxdata	*mlx;
-	struct s_camera		*cam;
-	struct s_pars		*pars;
-	struct s_tex		*tex;
-}						t_data;
+# include "cub3d_struct.h"
 
 		/*	main	*/
 int		main(int ac, char **ag);
@@ -121,6 +68,19 @@ int		ft_key_hook(int	key, t_data *l);
 		/*	ft_image  */
 int		ft_image(t_data *l);
 
+		/*ft_free*/
 void	ft_free(t_data *l);
+
+		/*	ft_mlx_main	*/
+int		ft_mlx_part(t_data *l);
+int		ft_end_prog(t_data *l);
+void	ft_init_mlx_values(t_data *l);
+
+		/*	ft_backgroud_image*/
+void	ft_create_background(t_data *l);
+void	ft_put_backgroud_pixel(t_data *l);
+
+		/*	ft_put_pixel  */
+void	ft_put_pixel(t_data *l, t_rgb *Color, int i, int j);
 
 #endif
