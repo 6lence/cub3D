@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:34:43 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/19 18:00:07 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/21 11:51:03 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include "ft_printf.h"
 # include "mlx.h"
 # include "cub3d_struct.h"
+# include "cub3d_define.h"
 
 		/*	main	*/
 int		main(int ac, char **ag);
@@ -68,8 +69,10 @@ int		ft_key_hook(int	key, t_data *l);
 		/*	ft_image  */
 int		ft_image(t_data *l);
 
-		/*ft_free*/
+		/*	ft_free  */
 void	ft_free(t_data *l);
+		/*  ft_free_2*/
+void	ft_free_cam(t_data *l);
 
 		/*	ft_mlx_main	*/
 int		ft_mlx_part(t_data *l);
@@ -82,5 +85,15 @@ void	ft_put_backgroud_pixel(t_data *l);
 
 		/*	ft_put_pixel  */
 void	ft_put_pixel(t_data *l, t_rgb *Color, int i, int j);
+void	ft_put_line(t_data *l, t_rgb *color, t_point pt1, t_point pt2);
+
+		/*	ft_minimap	*/
+void	ft_put_minimap(t_data *l);
+
+		/*	ft_minimap_player  */
+void	ft_place_player(t_data *l);
+
+		/*	ft_create_struct	*/
+t_point	ft_point_st(int i, int j);
 
 #endif

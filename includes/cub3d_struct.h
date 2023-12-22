@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:35:31 by qbanet            #+#    #+#             */
-/*   Updated: 2023/12/19 18:10:30 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/22 09:55:38 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,34 +40,52 @@ typedef struct s_pars
 	char		direction;
 }				t_pars;
 
-typedef struct s_mlxbackground
-{
-	void	*img_ptr;
-	char	*img_adr;
-	int		bpp;
-	int		line;
-	int		endian;
-}			t_mlxbackground;
-
 typedef struct s_mlxdata
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
 	int		win_h;
 	int		win_w;
-	void	*img_ptr;
-	char	*img_adr;
-	int		bpp;
-	int		line;
-	int		endian;
 }			t_mlxdata;
 
 typedef struct s_camera
 {
-	int		px;
-	int		py;
-	int		view;
-}			t_camera;
+	void			*img_ptr;
+	char			*img_adr;
+	struct s_rgb	*walls_p;
+	struct s_rgb	*trans_p;
+	int				bpp;
+	int				line;
+	int				endian;
+	float			px;
+	float			py;
+	int				view;
+}					t_camera;
+
+typedef struct s_minimap
+{
+	int				mapX;
+	int				mapY;
+	int				mapXo;
+	int				mapYo;
+	int				mapS;
+	struct s_rgb	*wall;
+	struct s_rgb	*none;
+}					t_minimap;
+
+typedef struct s_point
+{
+	int	x;
+	int	y;
+}		t_point;
+
+typedef struct s_player
+{
+	float			x;
+	float			y;
+	int				radius;
+	struct s_rgb	*color;
+}					t_player;
 
 typedef struct s_data
 {
@@ -76,10 +94,11 @@ typedef struct s_data
 	char					**file;
 	char					**map;
 	struct s_mlxdata		*mlx;
-	struct s_mlxbackground	*back;
 	struct s_camera			*cam;
 	struct s_pars			*pars;
 	struct s_tex			*tex;
+	struct s_minimap		*mini;
+	struct s_player			*player;
 }							t_data;
 
 #endif

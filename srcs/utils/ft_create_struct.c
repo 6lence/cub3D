@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_image.c                                         :+:      :+:    :+:   */
+/*   ft_create_struct.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 12:28:07 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/21 09:56:39 by mescobar         ###   ########.fr       */
+/*   Created: 2023/12/20 13:39:08 by mescobar          #+#    #+#             */
+/*   Updated: 2023/12/20 13:56:38 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_image(t_data *l)
+t_point	ft_point_st(int i, int j)
 {
-	l->cam->img_ptr = mlx_new_image(l->mlx->mlx_ptr, 
-						l->mlx->win_w, l->mlx->win_h);
-	l->cam->img_adr = mlx_get_data_addr(l->cam->img_ptr,
-						&l->cam->bpp, &l->cam->line, &l->cam->endian);
-	ft_put_backgroud_pixel(l);
-	ft_put_minimap(l);
-	//ft_raycasting(l);
-	mlx_put_image_to_window(l->mlx->mlx_ptr, l->mlx->win_ptr,
-							l->cam->img_ptr, 0, 0);
-	return (0);
+	t_point	k;
+
+	k.x = j;
+	k.y = i;
+	return (k);
 }

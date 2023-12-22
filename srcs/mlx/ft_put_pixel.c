@@ -6,18 +6,38 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:28:19 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/19 18:17:50 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/22 10:30:35 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+void	ft_put_line(t_data *l, t_rgb *color, t_point pt1, t_point pt2)
+{
+	int	dx;
+	int	dy;
+
+	dy = pt2.y - pt1.y;
+	dx = pt2.x - pt1.x;
+	while ((pt2.x - pt1.x) || (pt2.y - pt1.y))
+	{
+		if (pt1.x > 0 && pt1.y > 0 && pt1.x < l->mlx->win_w
+			&& pt1.y < l->mlx->win_h)
+			ft_put_pixel(l, color, pt1.y, pt1.x);
+		pt1.x += dx;
+		pt1.y += dy;
+	}
+}
+
 void	ft_put_pixel(t_data *l, t_rgb *Color, int i, int j)
 {
 	int 			pixel;
-	unsigned int	color;
+	int				color;
 
-	pixel = (i * l->back->line) + (j + (l->back->bpp / 8));
+	pixel = (i * l->cam->line) + (j * 4);
 	color = (Color->r << 16) | (Color->g << 8) | Color->b;
-	l->back->img_adr[pixel] = color;
+	l->cam->img_adr[pixel + 3] = 0 >> 24;
+	l->cam->img_adr[pixel + 2] = color >> 16;
+	l->cam->img_adr[pixel + 1] = color >> 8;
+	l->cam->img_adr[pixel + 0] = color >> 0;
 }

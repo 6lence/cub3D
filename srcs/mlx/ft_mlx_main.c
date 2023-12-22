@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:08:27 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/20 08:14:47 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/21 11:17:25 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,15 @@ int	ft_end_prog(t_data *l)
 	return (0);
 }
 
+void	ft_init_image_rgb(t_data *l)
+{
+	l->cam->walls_p = ft_calloc(1, sizeof(t_rgb));
+	l->cam->trans_p = ft_calloc(1, sizeof(t_rgb));
+	l->cam->walls_p->r = 255;
+	l->cam->walls_p->g = 0;
+	l->cam->walls_p->b = 0;
+}
+
 int	ft_mlx_part(t_data *l)
 {
 	l->mlx = ft_calloc(sizeof(t_mlxdata), 1);
@@ -53,8 +62,9 @@ int	ft_mlx_part(t_data *l)
 	l->mlx->mlx_ptr = mlx_init();
 	l->mlx->win_ptr = mlx_new_window(l->mlx->mlx_ptr, l->mlx->win_w,
 							l->mlx->win_h, "|-CUB3DMONGARRRRRRRS-|");
-	ft_create_background(l);
-	//ft_image(l);
+							
+	ft_init_image_rgb(l);
+	ft_image(l);
 	mlx_hook(l->mlx->win_ptr, KeyPress, KeyPressMask, ft_key_hook, l);
 	mlx_hook(l->mlx->win_ptr, 17, 0L, ft_end_prog, l);
 	mlx_loop(l->mlx->mlx_ptr);

@@ -29,7 +29,11 @@ SRC_FILES = main.c \
 			mlx/ft_image.c \
 			mlx/ft_background_image.c \
 			mlx/ft_put_pixel.c \
-			utils/ft_free.c
+			mlx/ft_minimap.c \
+			mlx/ft_minimap_player.c \
+			utils/ft_free.c \
+			utils/ft_free_2.c \
+			utils/ft_create_struct.c 
 
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
