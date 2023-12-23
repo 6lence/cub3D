@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_minimap_walls.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:03:31 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/23 21:40:04 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/24 00:04:45 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	ft_square(t_data *l, t_rgb *color)
 		j = l->mini->mapX;
 		while (j < l->mini->mapX + l->mini->mapS)
 		{
-			if (i <= l->mini->mapYo && j <= l->mini->mapXo
-				&& i >= l->mini->mapYb && j >= l->mini->mapXb)
+			if (i < l->mini->mapYo - 2 && j < l->mini->mapXo - 2
+				&& i > l->mini->mapYb && j > l->mini->mapXb)
 				ft_put_pixel(l, color, i, j);
 			j++;
 		}
@@ -39,12 +39,12 @@ void	ft_minimap_walls(t_data *l)
 	int	io;
 	int	jo;
 
-	i = -2;
-	while (i < 2)
+	i = -4;
+	while (i < 5)
 	{
-		j = -3;
+		j = -6;
 		io = (int)l->cam->py + i;
-		while (j < 6)
+		while (j < 7)
 		{
 			jo = (int)l->cam->px + j;
 			if (io < l->pars->map_len && io >= 0
@@ -52,13 +52,13 @@ void	ft_minimap_walls(t_data *l)
 			{
 				if (l->map[io] && l->map[io][jo] && l->map[io][jo] == '1')
 					ft_square(l, l->mini->wall);
-				else if (l->map[io] && l->map[io][jo])
+				else if (l->map[io] && l->map[io][jo] && l->map[io][jo] != ' ')
 					ft_square(l, l->mini->back);
 			}
 			j++;
 			l->mini->mapX += l->mini->mapS;
 		}
-		l->mini->mapX -= l->mini->mapS * 9;
+		l->mini->mapX -= l->mini->mapS * (7 - (-6));
 		l->mini->mapY += l->mini->mapS;
 		i++;
 	}

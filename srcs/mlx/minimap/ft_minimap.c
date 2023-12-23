@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_minimap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 12:55:01 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/23 21:40:27 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/23 23:55:26 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_init_minimap_values(t_data *l)
 	l->mini->mapYo = l->mlx->win_h / 40 * 10;
 	l->mini->mapXb = l->mini->mapX;
 	l->mini->mapYb = l->mini->mapY;
-	l->mini->mapS = 30;
+	l->mini->mapS = 18;
 	l->mini->wall = ft_calloc(1, sizeof(t_rgb));
 	l->mini->wall->r = 46;
 	l->mini->wall->g = 134;
