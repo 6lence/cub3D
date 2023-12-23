@@ -29,8 +29,10 @@ SRC_FILES = main.c \
 			mlx/ft_image.c \
 			mlx/ft_background_image.c \
 			mlx/ft_put_pixel.c \
-			mlx/ft_minimap.c \
-			mlx/ft_minimap_player.c \
+			mlx/minimap/ft_minimap.c \
+			mlx/minimap/ft_minimap_player.c \
+			mlx/minimap/ft_minimap_background.c \
+			mlx/minimap/ft_minimap_walls.c \
 			utils/ft_free.c \
 			utils/ft_free_2.c \
 			utils/ft_create_struct.c 

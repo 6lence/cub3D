@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_2.c                                        :+:      :+:    :+:   */
+/*   ft_minimap_background.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 08:46:41 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/23 21:57:08 by mescobar         ###   ########.fr       */
+/*   Created: 2023/12/22 22:40:58 by mescobar          #+#    #+#             */
+/*   Updated: 2023/12/23 12:17:47 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_free_player(t_player *l)
+void	ft_minimap_background(t_data *l)
 {
-	free(l->color);
-	free(l);
-}
+	int	i;
+	int	j;
 
-void	ft_free_minimap(t_minimap *l)
-{
-	free(l->wall);
-	free(l->back);
-	free(l);
-}
-
-void	ft_free_cam(t_data *l)
-{
-	free(l->cam->walls_p);
-	free(l->cam->trans_p);
-	mlx_destroy_image(l->mlx->mlx_ptr, l->cam->img_ptr);
-	free(l->cam);
+	i = l->mini->mapY;
+	while (i < l->mini->mapYo)
+	{
+		j = l->mini->mapX;
+		while (j < l->mini->mapXo)
+		{
+			if (j % 2 == 0 && i % 2 == 0)
+				ft_put_pixel(l, l->mini->back, i, j);
+			j++;
+		}
+		i++;
+	}
 }

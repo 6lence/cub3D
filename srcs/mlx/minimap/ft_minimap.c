@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 12:55:01 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/22 10:41:39 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/23 21:40:27 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,33 +29,28 @@ void	ft_init_player_values(t_data *l)
 void	ft_init_minimap_values(t_data *l)
 {
 	l->mini = ft_calloc(1, sizeof(t_minimap));
-	l->mini->mapS = 7;
-	l->mini->mapX = l->mlx->win_w / 10;
-	l->mini->mapY =	l->mlx->win_h / 10;
-	l->mini->mapXo = l->mlx->win_w * 4 / 30;
-	l->mini->mapYo = l->mlx->win_h / 30;
-	l->mini->none = ft_calloc(1, sizeof(t_rgb));
-	l->mini->none->r = 200;
-	l->mini->none->g = 200;
-	l->mini->none->b = 200;
+	l->mini->mapX = l->mlx->win_w / 30;
+	l->mini->mapY =	l->mlx->win_h / 30;
+	l->mini->mapXo = l->mlx->win_w / 40 * 10;
+	l->mini->mapYo = l->mlx->win_h / 40 * 10;
+	l->mini->mapXb = l->mini->mapX;
+	l->mini->mapYb = l->mini->mapY;
+	l->mini->mapS = 30;
 	l->mini->wall = ft_calloc(1, sizeof(t_rgb));
-}
-
-void	ft_send(t_data *l, t_rgb *color)
-{
-	(void)l;
-	(void)color;
-}
-
-void	ft_minimap_loop(t_data *l)
-{
-	(void)l;
+	l->mini->wall->r = 46;
+	l->mini->wall->g = 134;
+	l->mini->wall->b = 193;
+	l->mini->back = ft_calloc(1, sizeof(t_rgb));
+	l->mini->back->r = 28;
+	l->mini->back->g = 40;
+	l->mini->back->b = 51;
 }
 
 void	ft_put_minimap(t_data *l)
 {
 	ft_init_minimap_values(l);
 	ft_init_player_values(l);
+	ft_minimap_background(l);
+	ft_minimap_walls(l);
 	ft_place_player(l);
-	ft_minimap_loop(l);
 }

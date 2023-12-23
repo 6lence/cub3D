@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 12:30:08 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/20 12:30:05 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/23 21:56:01 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,10 @@ void	ft_free(t_data *l)
 			free(l->pars);
 		if (l->tex)
 			ft_free_textures(l->tex);
+		if (l->mini)
+			ft_free_minimap(l->mini);
+		if (l->player)
+			ft_free_player(l->player);
 		if (l->mlx)
 			ft_free_mlx(l->mlx);
 		free(l);

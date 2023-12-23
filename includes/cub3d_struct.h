@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:35:31 by qbanet            #+#    #+#             */
-/*   Updated: 2023/12/22 09:55:38 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/23 21:22:22 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,15 @@ typedef struct s_minimap
 {
 	int				mapX;
 	int				mapY;
+	int				mapXb;
+	int				mapYb;
 	int				mapXo;
 	int				mapYo;
 	int				mapS;
+	int				wall_x;
+	int				wall_y;
 	struct s_rgb	*wall;
-	struct s_rgb	*none;
+	struct s_rgb	*back;
 }					t_minimap;
 
 typedef struct s_point

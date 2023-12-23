@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:34:43 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/21 11:51:03 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/23 21:57:10 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ int		ft_image(t_data *l);
 void	ft_free(t_data *l);
 		/*  ft_free_2*/
 void	ft_free_cam(t_data *l);
+void	ft_free_minimap(t_minimap *l);
+void	ft_free_player(t_player *l);
 
 		/*	ft_mlx_main	*/
 int		ft_mlx_part(t_data *l);
@@ -92,6 +94,12 @@ void	ft_put_minimap(t_data *l);
 
 		/*	ft_minimap_player  */
 void	ft_place_player(t_data *l);
+
+		/*	ft_minimap_background  */
+void	ft_minimap_background(t_data *l);
+
+		/*	ft_minimap_walls  */
+void	ft_minimap_walls(t_data *l);
 
 		/*	ft_create_struct	*/
 t_point	ft_point_st(int i, int j);
