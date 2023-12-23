@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_struct.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:35:31 by qbanet            #+#    #+#             */
-/*   Updated: 2023/12/23 21:22:22 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/24 00:15:27 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,14 @@ typedef struct s_camera
 
 typedef struct s_minimap
 {
-	int				mapX;
-	int				mapY;
-	int				mapXb;
-	int				mapYb;
-	int				mapXo;
-	int				mapYo;
-	int				mapS;
+	int				mapx;
+	int				mapy;
+	int				mapxb;
+	int				mapyb;
+	int				mapxo;
+	int				mapyo;
+	int				mapsx;
+	int				mapsy;
 	int				wall_x;
 	int				wall_y;
 	struct s_rgb	*wall;
