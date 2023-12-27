@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 20:54:06 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/12 11:54:54 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/22 10:20:43 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	ft_verify_rgb_values(t_data *l)
 {
-	l->tex->F->r = 128;
-	l->tex->F->g = 128;
-	l->tex->F->b = 128;
-	l->tex->C->r = 0;
-	l->tex->C->g = 255;
-	l->tex->C->b = 255;
+	l->tex->C->r = 128;
+	l->tex->C->g = 128;
+	l->tex->C->b = 128;
+	l->tex->F->r = 200;
+	l->tex->F->g = 200;
+	l->tex->F->b = 200;
 }
 
 void	ft_affect(t_data *l, char *str, int i, char letter)
