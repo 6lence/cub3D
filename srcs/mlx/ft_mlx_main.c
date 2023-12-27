@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mlx_main.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:08:27 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/21 11:17:25 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/27 10:38:09 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_init_mlx_values(t_data *l)
 				l->cam->py = i;
 				l->cam->px = j;
 				l->cam->view = l->pars->direction;
-				break;
+				break ;
 			}
 			j++;
 		}
@@ -61,8 +61,7 @@ int	ft_mlx_part(t_data *l)
 	ft_init_mlx_values(l);
 	l->mlx->mlx_ptr = mlx_init();
 	l->mlx->win_ptr = mlx_new_window(l->mlx->mlx_ptr, l->mlx->win_w,
-							l->mlx->win_h, "|-CUB3DMONGARRRRRRRS-|");
-							
+			l->mlx->win_h, WIN_NAME);
 	ft_init_image_rgb(l);
 	ft_image(l);
 	mlx_hook(l->mlx->win_ptr, KeyPress, KeyPressMask, ft_key_hook, l);
