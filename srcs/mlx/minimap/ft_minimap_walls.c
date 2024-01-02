@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_minimap_walls.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:03:31 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/24 00:24:00 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/26 08:28:31 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	ft_square(t_data *l, t_rgb *color)
 	int	j;
 
 	i = l->mini->mapy;
-	while (i < l->mini->mapy + l->mini->mapsy)
+	while (i < l->mini->mapy + l->mini->mapsy - 1)
 	{
 		j = l->mini->mapx;
-		while (j < l->mini->mapx + l->mini->mapsx)
+		while (j < l->mini->mapx + l->mini->mapsx - 1)
 		{
 			if (i < l->mini->mapyo - 2 && j < l->mini->mapxo - 2
 				&& i > l->mini->mapyb && j > l->mini->mapxb)

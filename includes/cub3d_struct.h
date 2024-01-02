@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_struct.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:35:31 by qbanet            #+#    #+#             */
-/*   Updated: 2023/12/24 00:15:27 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/26 13:09:43 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,32 @@ typedef struct s_player
 {
 	float			x;
 	float			y;
+	float			xd;
+	float			yd;
+	float			a;
 	int				radius;
 	struct s_rgb	*color;
 }					t_player;
 
+typedef struct s_ray
+{
+	int		mx;
+	int		my;
+	int		mp;
+	float	rx;
+	float	ry;
+	float	ra;
+	float	xo;
+	float	yo;
+	float	distH;
+	float	hx;
+	float	hy;
+	float	distV;
+	float	vx;
+	float	vy;
+	float	atan;
+	float	ntan;
+}			t_ray;
 typedef struct s_data
 {
 	int						file_fd;

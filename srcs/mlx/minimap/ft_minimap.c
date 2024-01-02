@@ -3,28 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_minimap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 12:55:01 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/24 00:20:17 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/12/26 09:04:43 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	ft_init_player_values(t_data *l)
-{
-	l->player = ft_calloc(1, sizeof(t_player));
-	l->player->x = l->mini->mapxo \
-			- ((l->mini->mapxo - l->mini->mapx) / 2);
-	l->player->y = l->mini->mapyo \
-			- ((l->mini->mapyo - l->mini->mapy) / 2);
-	l->player->radius = 4;
-	l->player->color = ft_calloc(1, sizeof(t_rgb));
-	l->player->color->r = 255;
-	l->player->color->g = 255;
-	l->player->color->b = 0;
-}
 
 void	ft_init_minimap_values(t_data *l)
 {
