@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:34:43 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/23 21:57:10 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/03 11:05:44 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,16 +90,37 @@ void	ft_put_pixel(t_data *l, t_rgb *Color, int i, int j);
 void	ft_put_line(t_data *l, t_rgb *color, t_point pt1, t_point pt2);
 
 		/*	ft_minimap	*/
+void	ft_init_minimap_values(t_data *l);
 void	ft_put_minimap(t_data *l);
 
 		/*	ft_minimap_player  */
+void	ft_init_player_values(t_data *l);
 void	ft_place_player(t_data *l);
 
 		/*	ft_minimap_background  */
 void	ft_minimap_background(t_data *l);
 
 		/*	ft_minimap_walls  */
+void	ft_square(t_data *l, t_rgb *color);
+void	ft_loop_conditions(t_data *l, int io, int jo);
 void	ft_minimap_walls(t_data *l);
+
+		/*	ft_raycasting	*/
+void	ft_raycasting(t_data *l);
+void	ft_init_ray(t_data *l);
+void	ft_determine_direction(t_data *l);
+
+		/*	ft_raycasting_calc	*/
+void	ft_step_and_sidedist(t_ray *r);
+void	ft_dda(t_data *l, t_ray *r);
+
+		/*	ft_raycasting_main_loop	 */
+void	ft_dda_init(t_data *l, t_ray *r);
+void	ft_height(t_data *l);
+void	ft_color(t_ray *r);
+void	ft_verline(t_data *l, t_ray *r, int x);
+void	ft_main_loop(t_data *l, t_ray *r);
+
 
 		/*	ft_create_struct	*/
 t_point	ft_point_st(int i, int j);

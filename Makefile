@@ -33,6 +33,9 @@ SRC_FILES = main.c \
 			mlx/minimap/ft_minimap_player.c \
 			mlx/minimap/ft_minimap_background.c \
 			mlx/minimap/ft_minimap_walls.c \
+			mlx/raycasting/ft_raycasting.c \
+			mlx/raycasting/ft_raycasting_calc.c \
+			mlx/raycasting/ft_raycasting_main_loop.c \
 			utils/ft_free.c \
 			utils/ft_free_2.c \
 			utils/ft_create_struct.c 

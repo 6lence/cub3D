@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:35:10 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/27 10:52:56 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/02 08:31:49 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int ac, char **ag)
 {
 	t_data	*l;
 
-	l = malloc(sizeof(t_data));
+	l = ft_calloc(sizeof(t_data), 1);
 	if (ac != 2 || !ag[1]
 		|| !ft_strcmp(ag[1] + (ft_strlen(ag[1]) - 4), ".cub\0"))
 		return (free(l), printf("Only one argument accepted, format: *.cub\n"));

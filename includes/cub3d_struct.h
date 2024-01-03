@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_struct.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:35:31 by qbanet            #+#    #+#             */
-/*   Updated: 2023/12/24 00:15:27 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/03 10:57:59 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,41 @@ typedef struct s_player
 {
 	float			x;
 	float			y;
+	float			xd;
+	float			yd;
+	float			a;
 	int				radius;
 	struct s_rgb	*color;
 }					t_player;
 
+typedef struct s_ray
+{
+	int				stepx;
+	int				stepy;
+	int				hit;
+	int				side;
+	int				line_h;
+	int				draw_start;
+	int				draw_end;
+	double			posx;
+	double			posy;
+	double			dirx;
+	double			diry;
+	double			raydirx;
+	double			raydiry;
+	double			planx;
+	double			plany;
+	double			mapx;
+	double			mapy;
+	double			sidedistx;
+	double			sidedisty;
+	double			deltadistx;
+	double			deltadisty;
+	double			fov;
+	double			camerax;
+	double			perpwalldist;
+	t_rgb			*color;
+}			t_ray;
 typedef struct s_data
 {
 	int						file_fd;
@@ -104,6 +135,7 @@ typedef struct s_data
 	struct s_tex			*tex;
 	struct s_minimap		*mini;
 	struct s_player			*player;
+	struct s_ray			*ray;
 }							t_data;
 
 #endif
