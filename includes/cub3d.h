@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:34:43 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/26 09:26:17 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/03 11:05:44 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,23 @@ void	ft_minimap_background(t_data *l);
 void	ft_square(t_data *l, t_rgb *color);
 void	ft_loop_conditions(t_data *l, int io, int jo);
 void	ft_minimap_walls(t_data *l);
+
+		/*	ft_raycasting	*/
+void	ft_raycasting(t_data *l);
+void	ft_init_ray(t_data *l);
+void	ft_determine_direction(t_data *l);
+
+		/*	ft_raycasting_calc	*/
+void	ft_step_and_sidedist(t_ray *r);
+void	ft_dda(t_data *l, t_ray *r);
+
+		/*	ft_raycasting_main_loop	 */
+void	ft_dda_init(t_data *l, t_ray *r);
+void	ft_height(t_data *l);
+void	ft_color(t_ray *r);
+void	ft_verline(t_data *l, t_ray *r, int x);
+void	ft_main_loop(t_data *l, t_ray *r);
+
 
 		/*	ft_create_struct	*/
 t_point	ft_point_st(int i, int j);

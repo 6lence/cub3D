@@ -6,39 +6,52 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 09:50:36 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/26 13:20:28 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/03 11:07:10 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-float	ft_dist(t_point a, t_point b, float angl)
+void	ft_determine_direction(t_data *l)
 {
-	return (sqrt((b.x - a.x) * (b.x - a.x)
-			+ (b.y - a.y) * (b.y - a.y)));
+	if (l->pars->direction == 'N')
+	{
+		l->ray->dirx = 0;
+		l->ray->diry = -1;
+	}
+	else if (l->pars->direction == 'S')
+	{
+		l->ray->dirx = 0;
+		l->ray->diry = 1;
+	}
+	else if (l->pars->direction == 'E')
+	{
+		l->ray->dirx = 1;
+		l->ray->diry = 0;
+	}
+	else
+	{
+		l->ray->dirx = -1;
+		l->ray->diry = 0;
+	}
+}
+
+void	ft_init_ray(t_data *l)
+{
+	if (!l->ray)
+	{
+		l->ray = ft_calloc(sizeof(t_ray), 1);
+		ft_determine_direction(l);
+		l->ray->planx = 0;
+		l->ray->plany = 0.66;
+		l->ray->fov = 2 * atan(l->ray->plany / 1.0);
+	}
+	l->ray->posx = l->cam->px;
+	l->ray->posy = l->cam->py;
 }
 
 void	ft_raycasting(t_data *l)
 {
-	int	r;
-	int	dof;
-
-	l->ray->ra = l->player->a;
-	r = 0;
-	while (r < 1)
-	{
-		dof = 0;
-		ft_vertical_ray(l);
-		ft_horizontal_ray(l);
-		if (l->ray->distV > l->ray->distH)
-		{
-			l->ray->rx = l->ray->hx;
-			l->ray->ry = l->ray->hy;
-		}
-		else if (l->ray->distV < l->ray->distH)
-		{
-			l->ray->rx = l->ray->vx;
-			l->ray->ry = l->ray->vy;
-		}
-	}
+	ft_init_ray(l);
+	ft_main_loop(l, l->ray);
 }
