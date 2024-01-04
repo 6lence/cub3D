@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 10:40:23 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/03 11:08:52 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/03 20:55:33 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,9 @@ void	ft_dda(t_data *l, t_ray *r)
 			r->mapy += r->stepy;
 			r->side = 1;
 		}
-		if (l->map[(int)r->mapy] && l->map[(int)r->mapy][(int)r->mapx]
+		if ((int)r->mapx < l->pars->map_len && (int)r->mapy > 0
+			&& (int)r->mapx > 0
+			&& (int)r->mapy < (double)ft_strlen(l->map[(int)r->mapy])
 			&& l->map[(int)r->mapy][(int)r->mapx] > 0)
 			r->hit = 1;
 	}

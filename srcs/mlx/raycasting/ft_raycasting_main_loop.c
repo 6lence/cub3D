@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 09:10:41 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/03 11:11:45 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/03 21:37:28 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,9 @@ void	ft_verline(t_data *l, t_ray *r, int x)
 	tmp = r->draw_start;
 	while (tmp <= r->draw_end)
 	{
-		ft_put_pixel(l, r->color, tmp, x);
+		if (tmp < l->mlx->win_h && tmp > 0
+			&& x > 0 && x < l->mlx->win_w)
+			ft_put_pixel(l, r->color, tmp, x);
 		tmp++;
 	}
 }
@@ -57,7 +59,7 @@ void	ft_main_loop(t_data *l, t_ray *r)
 	int	x;
 
 	x = 0;
-	while (x < l->mlx->win_w)
+	while (x < l->mlx->win_h)
 	{
 		r->camerax = 2 * x / (double)l->mlx->win_w - 1;
 		r->raydirx = r->raydirx + r->planx + r->camerax;
