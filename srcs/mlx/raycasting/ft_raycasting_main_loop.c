@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 09:10:41 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/05 13:38:54 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/05 14:39:07 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,12 @@ void	ft_height(t_data *l)
 
 void	ft_color(t_ray *r)
 {
-	r->color = ft_calloc(1, sizeof(t_rgb));
-	r->color->b = 255 / 3;
+	if (!r->color)
+		r->color = ft_calloc(1, sizeof(t_rgb));
+	r->color->g = 80;
+	r->color->b = 255 / 2;
 	if (r->side == 1)
-		r->color->g = 255 / 2;
+		r->color->g = 160;
 }
 
 void	ft_verline(t_data *l, t_ray *r, int x)

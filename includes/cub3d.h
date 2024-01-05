@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:34:43 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/03 11:05:44 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/05 14:06:36 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void	ft_free(t_data *l);
 void	ft_free_cam(t_data *l);
 void	ft_free_minimap(t_minimap *l);
 void	ft_free_player(t_player *l);
+void	ft_free_ray(t_ray *r);
 
 		/*	ft_mlx_main	*/
 int		ft_mlx_part(t_data *l);
