@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_define.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 09:15:50 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/02 08:03:43 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/05 10:17:29 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@
 # define M_PI		3.14159265358979323846
 # define MINI_P		10
 # define R			4
+
+# define TEST		printf("___________TEST_____________\n")
 
 #endif

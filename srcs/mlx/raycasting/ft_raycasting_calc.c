@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_raycasting_calc.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 10:40:23 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/03 11:08:52 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/05 10:22:22 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,10 @@ void	ft_dda(t_data *l, t_ray *r)
 			r->side = 1;
 		}
 		if (l->map[(int)r->mapy] && l->map[(int)r->mapy][(int)r->mapx]
-			&& l->map[(int)r->mapy][(int)r->mapx] > 0)
+			&& l->map[(int)r->mapy][(int)r->mapx] != '0')
 			r->hit = 1;
+		else if (!ft_isalnum(l->map[(int)r->mapy][(int)r->mapx]))
+			break ;
 	}
 	if (r->side == 0)
 		r->perpwalldist = (r->sidedistx - r->deltadistx);

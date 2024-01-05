@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_minimap_player.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 11:23:10 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/02 08:32:40 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/05 10:59:43 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "cub3d.h"
+#include "cub3d.h"
 
 void	ft_init_player_values(t_data *l)
 {
@@ -27,7 +27,7 @@ void	ft_init_player_values(t_data *l)
 	l->player->color->r = 255;
 	l->player->color->g = 255;
 	l->player->color->b = 0;
-	l->player->xd = cos(l->player->a) / 2;
+	l->player->xd = cos(l->player->a) / 2 - 0.4;
 	l->player->yd = sin(l->player->a) / 2;
 }
 

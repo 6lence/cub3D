@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_raycasting_main_loop.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 09:10:41 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/03 11:11:45 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/05 10:20:04 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_dda_init(t_data *l, t_ray *r)
 {
-	r->mapx	= (int)l->cam->px;
+	r->mapx = (int)l->cam->px;
 	r->mapy = (int)l->cam->py;
 	r->deltadistx = (r->raydirx == 0) ? 1e30 : fabs(1 / r->raydirx);
 	r->deltadisty = (r->raydiry == 0) ? 1e30 : fabs(1 / r->raydiry);
@@ -35,9 +35,9 @@ void	ft_height(t_data *l)
 void	ft_color(t_ray *r)
 {
 	r->color = ft_calloc(1, sizeof(t_rgb));
-	r->color->r = 255;
+	r->color->b = 255 / 3;
 	if (r->side == 1)
-		r->color->r = 255 / 2;
+		r->color->g = 255 / 2;
 }
 
 void	ft_verline(t_data *l, t_ray *r, int x)
@@ -60,8 +60,8 @@ void	ft_main_loop(t_data *l, t_ray *r)
 	while (x < l->mlx->win_w)
 	{
 		r->camerax = 2 * x / (double)l->mlx->win_w - 1;
-		r->raydirx = r->raydirx + r->planx + r->camerax;
-		r->raydiry = r->raydiry + r->plany + r->camerax;
+		r->raydirx = r->dirx + r->planx * r->camerax;
+		r->raydiry = r->diry + r->plany * r->camerax;
 		ft_dda_init(l, r);
 		ft_step_and_sidedist(r);
 		ft_dda(l, r);
