@@ -54,7 +54,6 @@ void	ft_init_ray(t_data *l)
 	}
 	l->ray->posx = l->cam->px;
 	l->ray->posy = l->cam->py;
-	printf("posX = %f | posY = %f\n", l->ray->posx, l->ray->posy);
 }
 
 void	ft_raycasting(t_data *l)
