@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_key_hook.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 12:14:02 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/03 20:45:34 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/05 10:58:23 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_add_angle(int key, t_data *l)
 	}
 }
 
-int	ft_key_hook(int	key, t_data *l)
+int	ft_key_hook(int key, t_data *l)
 {
 	if (key == ESC)
 	{
