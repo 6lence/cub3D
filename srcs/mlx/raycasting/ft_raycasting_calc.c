@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_raycasting_calc.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 10:40:23 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/05 13:34:06 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:13:56 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	ft_step_and_sidedist(t_ray *r)
 	Digital Difference Analyzer
 	algorithm used to draw lines.
 */
+
 
 int	ft_not_wall(t_data *l, t_ray *r)
 {
