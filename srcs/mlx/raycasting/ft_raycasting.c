@@ -3,45 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   ft_raycasting.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 09:50:36 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/09 10:42:01 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/09 15:16:32 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_determine_direction(t_data *l)
+void	ft_direction2(t_data *l, t_ray *r)
 {
 	if (l->pars->direction == 'N')
 	{
-		l->ray->dirx = 0;
-		l->ray->diry = -1;
-		l->ray->planx = 0.66;
-		l->ray->plany = 0;
+		r->dirx = -1;
+		r->diry = 0;
+		r->planx = 0;
+		r->plany = 0.66;
 	}
-	else if (l->pars->direction == 'S')
+	if (l->pars->direction == 'S')
 	{
-		l->ray->dirx = 0;
-		l->ray->diry = 1;
-		l->ray->planx = -0.66;
-		l->ray->plany = 0;
+		r->dirx = 1;
+		r->diry = 0;
+		r->planx = 0;
+		r->plany = -0.66;
 	}
-	else if (l->pars->direction == 'E')
+}
+
+void	ft_direction(t_data *l, t_ray *r)
+{
+	if (l->pars->direction == 'W')
 	{
-		l->ray->dirx = 1;
-		l->ray->diry = 0;
-		l->ray->planx = 0;
-		l->ray->plany = 0.66;
+		r->dirx = 0;
+		r->diry = -1;
+		r->planx = -0.66;
+		r->plany = 0;
 	}
-	else if (l->pars->direction == 'W')
+	if (l->pars->direction == 'E')
 	{
-		l->ray->dirx = -1;
-		l->ray->diry = 0;
-		l->ray->planx = 0;
-		l->ray->plany = -0.66;
+		r->dirx = 0;
+		r->diry = 1;
+		r->planx = 0.66;
+		r->plany = 0;
 	}
+	ft_direction2(l, r);
 }
 
 void	ft_init_ray(t_data *l)
@@ -49,10 +54,10 @@ void	ft_init_ray(t_data *l)
 	if (!l->ray)
 	{
 		l->ray = ft_calloc(sizeof(t_ray), 1);
-		ft_determine_direction(l);
+		ft_direction(l, l->ray);
 	}
-	l->ray->posx = l->cam->px;
-	l->ray->posy = l->cam->py;
+	l->ray->posx = l->cam->py;
+	l->ray->posy = l->cam->px;
 }
 
 void	ft_raycasting(t_data *l)

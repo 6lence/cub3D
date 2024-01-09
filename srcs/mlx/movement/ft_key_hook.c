@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_key_hook.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 12:14:02 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/08 22:16:05 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/09 16:23:27 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,21 +44,8 @@ int	ft_key_hook(int key, t_data *l)
 		exit(EXIT_SUCCESS);
 		return (1);
 	}
-	if (key == W || key == XK_Up)
-		if (l->map[(int)(l->cam->py - 0.2)][(int)l->cam->px] != '1')
-			l->cam->py -= 0.1;
-	if (key == S || key == XK_Down)
-		if (l->map[(int)(l->cam->py + 0.2)][(int)l->cam->px] != '1')
-			l->cam->py += 0.1;
-	if (key == A)
-		if (l->map[(int)l->cam->py][(int)(l->cam->px - 0.2)] != '1')
-			l->cam->px -= 0.1;
-	if (key == D)
-		if (l->map[(int)l->cam->py][(int)(l->cam->px + 0.2)] != '1')
-			l->cam->px += 0.1;
-	if (key == XK_Left)
-		ft_turn_right(l->ray);
-	if (key == XK_Right)
-		ft_turn_left(l->ray);
+	if (key == XK_M)
+		l->mlx->mouse = l->mlx->mouse * (-1);
+	ft_movement(key, l);
 	return (ft_refresh(l));
 }

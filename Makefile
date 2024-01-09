@@ -38,6 +38,7 @@ SRC_FILES = main.c \
 			mlx/movement/ft_key_hook.c \
 			mlx/movement/ft_key_movement.c \
 			mlx/movement/ft_turn.c \
+			mlx/movement/ft_mouse.c \
 			utils/ft_free.c \
 			utils/ft_free_2.c \
 			utils/ft_create_struct.c 

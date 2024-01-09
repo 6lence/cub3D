@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_struct.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:35:31 by qbanet            #+#    #+#             */
-/*   Updated: 2024/01/05 18:33:23 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/09 16:13:51 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ typedef struct s_mlxdata
 	void	*win_ptr;
 	int		win_h;
 	int		win_w;
+	int		mouse;
+	int		mright;
+	int		mleft;
 }			t_mlxdata;
 
 typedef struct s_camera
@@ -97,6 +100,8 @@ typedef struct s_player
 
 typedef struct s_ray
 {
+	int				mapx;
+	int				mapy;
 	int				stepx;
 	int				stepy;
 	int				hit;
@@ -112,8 +117,6 @@ typedef struct s_ray
 	double			raydiry;
 	double			planx;
 	double			plany;
-	double			mapx;
-	double			mapy;
 	double			sidedistx;
 	double			sidedisty;
 	double			deltadistx;

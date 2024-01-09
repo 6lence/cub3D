@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_define.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 09:15:50 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/05 18:55:12 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/09 15:32:08 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@
 # define MINI_P		10
 # define R			4
 # define ROT_SPEED 	0.05
-# define MOV		0.1
-# define MS			0.045
+# define MS			0.090
 
 # define TEST		printf("___________TEST_____________\n")
 

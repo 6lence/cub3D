@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:34:43 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/05 18:59:29 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/09 16:15:32 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,9 @@ int		ft_key_hook(int key, t_data *l);
 		/*	ft_key_movement	*/
 void	ft_movement(int key, t_data *l);
 
+		/*	ft_mouse  */
+int		ft_mouse(int x, int y, t_data *l);
+
 		/*	ft_turn	*/
 void	ft_turn_left(t_ray *r);
 void	ft_turn_right(t_ray *r);
@@ -123,7 +126,7 @@ void	ft_step_and_sidedist(t_ray *r);
 void	ft_dda(t_data *l, t_ray *r);
 
 		/*	ft_raycasting_main_loop	 */
-void	ft_dda_init(t_data *l, t_ray *r);
+void	ft_dda_init(t_ray *r);
 void	ft_height(t_data *l);
 void	ft_color(t_ray *r);
 void	ft_verline(t_data *l, t_ray *r, int x);
