@@ -25,7 +25,6 @@ SRC_FILES = main.c \
 			parsing/ft_parsing_map.c \
 			parsing/ft_parsing_map_spaces.c \
 			mlx/ft_mlx_main.c \
-			mlx/ft_key_hook.c \
 			mlx/ft_image.c \
 			mlx/ft_background_image.c \
 			mlx/ft_put_pixel.c \
@@ -36,6 +35,9 @@ SRC_FILES = main.c \
 			mlx/raycasting/ft_raycasting.c \
 			mlx/raycasting/ft_raycasting_calc.c \
 			mlx/raycasting/ft_raycasting_main_loop.c \
+			mlx/movement/ft_key_hook.c \
+			mlx/movement/ft_key_movement.c \
+			mlx/movement/ft_turn.c \
 			utils/ft_free.c \
 			utils/ft_free_2.c \
 			utils/ft_create_struct.c 

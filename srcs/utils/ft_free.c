@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 12:30:08 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/24 00:21:05 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/05 14:05:23 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ void	ft_free(t_data *l)
 			ft_free_minimap(l->mini);
 		if (l->player)
 			ft_free_player(l->player);
+		if (l->ray)
+			ft_free_ray(l->ray);
 		if (l->mlx)
 			ft_free_mlx(l->mlx);
 		free(l);

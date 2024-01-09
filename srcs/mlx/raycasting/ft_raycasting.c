@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 09:50:36 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/09 12:05:36 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/09 12:14:31 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ void	ft_determine_direction(t_data *l)
 		l->ray->dirx = 1;
 		l->ray->diry = 0;
 		l->ray->planx = 0;
-		l->ray->plany = -0.66;
+		l->ray->plany = 0.66;
 	}
 	else if (l->pars->direction == 'W')
 	{
 		l->ray->dirx = -1;
 		l->ray->diry = 0;
 		l->ray->planx = 0;
-		l->ray->plany = 0.66;
+		l->ray->plany = -0.66;
 	}
 }
 
@@ -50,7 +50,6 @@ void	ft_init_ray(t_data *l)
 	{
 		l->ray = ft_calloc(sizeof(t_ray), 1);
 		ft_determine_direction(l);
-		l->ray->fov = 2 * atan(l->ray->plany / 1.0);
 	}
 	l->ray->posx = l->cam->px;
 	l->ray->posy = l->cam->py;

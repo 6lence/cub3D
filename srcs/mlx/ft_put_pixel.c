@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_put_pixel.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:28:19 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/22 10:30:35 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/08 22:08:17 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_put_line(t_data *l, t_rgb *color, t_point pt1, t_point pt2)
 
 void	ft_put_pixel(t_data *l, t_rgb *Color, int i, int j)
 {
-	int 			pixel;
+	int				pixel;
 	int				color;
 
 	pixel = (i * l->cam->line) + (j * 4);
