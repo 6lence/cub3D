@@ -57,8 +57,8 @@ typedef struct s_camera
 	int				bpp;
 	int				line;
 	int				endian;
-	float			px;
-	float			py;
+	double			px;
+	double			py;
 	int				view;
 }	t_camera;
 

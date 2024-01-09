@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_key_hook.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 12:14:02 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/05 10:58:23 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/08 22:16:05 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,20 @@ int	ft_key_hook(int key, t_data *l)
 		return (1);
 	}
 	if (key == W || key == XK_Up)
-		l->cam->py -= l->player->xd;
+		if (l->map[(int)(l->cam->py - 0.2)][(int)l->cam->px] != '1')
+			l->cam->py -= 0.1;
 	if (key == S || key == XK_Down)
-		l->cam->py += l->player->xd;
+		if (l->map[(int)(l->cam->py + 0.2)][(int)l->cam->px] != '1')
+			l->cam->py += 0.1;
 	if (key == A)
-		l->cam->px -= l->player->xd;
+		if (l->map[(int)l->cam->py][(int)(l->cam->px - 0.2)] != '1')
+			l->cam->px -= 0.1;
 	if (key == D)
-		l->cam->px += l->player->xd;
-	ft_add_angle(key, l);
+		if (l->map[(int)l->cam->py][(int)(l->cam->px + 0.2)] != '1')
+			l->cam->px += 0.1;
+	if (key == XK_Left)
+		ft_turn_right(l->ray);
+	if (key == XK_Right)
+		ft_turn_left(l->ray);
 	return (ft_refresh(l));
 }

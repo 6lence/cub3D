@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_raycasting_main_loop.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 09:10:41 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/09 11:55:32 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/08 22:25:48 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,18 @@
 
 void	ft_dda_init(t_data *l, t_ray *r)
 {
-	r->mapx = (int)l->cam->px;
-	r->mapy = (int)l->cam->py;
-	r->deltadistx = (r->raydirx == 0) ? 1e30 : fabs(1 / r->raydirx);
-	r->deltadisty = (r->raydiry == 0) ? 1e30 : fabs(1 / r->raydiry);
+	(void)l;
+	r->mapx = (int)r->posx;
+	r->mapy = (int)r->posy;
+	r->deltadistx = fabs(1 / r->raydirx);
+	r->deltadisty = fabs(1 / r->raydiry);
 	r->hit = 0;
 }
 
 void	ft_height(t_data *l)
 {
 	l->ray->line_h = (int)(l->mlx->win_h / l->ray->perpwalldist);
-	l->ray->draw_start = -l->ray->line_h / 2 + l->mlx->win_h / 2;
+	l->ray->draw_start = -(l->ray->line_h) / 2 + l->mlx->win_h / 2;
 	if (l->ray->draw_start < 0)
 		l->ray->draw_start = 0;
 	l->ray->draw_end = l->ray->line_h / 2 + l->mlx->win_h / 2;
@@ -44,7 +45,8 @@ void	ft_height(t_data *l)
 
 void	ft_color(t_ray *r)
 {
-	r->color = ft_calloc(1, sizeof(t_rgb));
+	if (!r->color)
+		r->color = ft_calloc(1, sizeof(t_rgb));
 	r->color->g = 80;
 	r->color->b = 255 / 2;
 	if (r->side == 1)

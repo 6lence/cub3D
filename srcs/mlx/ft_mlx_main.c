@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mlx_main.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:08:27 by mescobar          #+#    #+#             */
 /*   Updated: 2024/01/09 11:47:57 by qbanet           ###   ########.fr       */
@@ -27,8 +27,8 @@ void	ft_init_mlx_values(t_data *l)
 		{
 			if (l->map[i][j] == l->pars->direction)
 			{
-				l->cam->py = i;
-				l->cam->px = j;
+				l->cam->py = i + 0.5;
+				l->cam->px = j + 0.5;
 				l->cam->view = l->pars->direction;
 				break ;
 			}
