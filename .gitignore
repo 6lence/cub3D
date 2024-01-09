@@ -117,3 +117,6 @@ ft_printf/src/ft_printf.o
 ft_printf/src/ft_put.o
 ft_printf/src/ft_verifs.o
 ft_printf/libftprintf.a
+obj/mlx/movement/ft_key_hook.o
+obj/mlx/movement/ft_key_movement.o
+obj/mlx/movement/ft_turn.o
