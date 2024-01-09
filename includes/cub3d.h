@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:34:43 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/05 14:06:36 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/05 18:59:29 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		ft_verif_file(t_data *l, char *s);
 int		ft_open_file(t_data *l, char *s);
 
 		/* 	ft_parsing_file */
-int 	ft_parsing_file(t_data *l);
+int		ft_parsing_file(t_data *l);
 void	ft_get_map_len(t_data *l, char *str);
 void	ft_verif_f_c(t_data *l, int i);
 void	ft_get_texture_variable(t_data *l, char *str);
@@ -64,7 +64,14 @@ int		ft_check_spaces_proximity(t_data *l, char **str, int i);
 int		ft_check_proximity(char **str, int i, size_t *j);
 
 		/*  ft_key_hook	*/
-int		ft_key_hook(int	key, t_data *l);
+int		ft_key_hook(int key, t_data *l);
+
+		/*	ft_key_movement	*/
+void	ft_movement(int key, t_data *l);
+
+		/*	ft_turn	*/
+void	ft_turn_left(t_ray *r);
+void	ft_turn_right(t_ray *r);
 
 		/*	ft_image  */
 int		ft_image(t_data *l);

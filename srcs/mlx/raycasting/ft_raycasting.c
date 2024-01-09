@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_raycasting.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 09:50:36 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/05 10:57:28 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/09 10:42:01 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,17 @@ void	ft_determine_direction(t_data *l)
 	}
 	else if (l->pars->direction == 'E')
 	{
-		l->ray->dirx = -1;
+		l->ray->dirx = 1;
 		l->ray->diry = 0;
 		l->ray->planx = 0;
-		l->ray->plany = -0.66;
+		l->ray->plany = 0.66;
 	}
 	else if (l->pars->direction == 'W')
 	{
 		l->ray->dirx = -1;
 		l->ray->diry = 0;
 		l->ray->planx = 0;
-		l->ray->plany = 0.66;
+		l->ray->plany = -0.66;
 	}
 }
 
@@ -50,7 +50,6 @@ void	ft_init_ray(t_data *l)
 	{
 		l->ray = ft_calloc(sizeof(t_ray), 1);
 		ft_determine_direction(l);
-		l->ray->fov = 2 * atan(l->ray->plany / 1.0);
 	}
 	l->ray->posx = l->cam->px;
 	l->ray->posy = l->cam->py;
