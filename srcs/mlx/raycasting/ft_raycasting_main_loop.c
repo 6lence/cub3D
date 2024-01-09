@@ -31,6 +31,16 @@ void	ft_height(t_data *l)
 	l->ray->draw_end = l->ray->line_h / 2 + l->mlx->win_h / 2;
 	if (l->ray->draw_end >= l->mlx->win_h)
 		l->ray->draw_end = l->mlx->win_h - 1;
+	if (l->ray->side == 0)
+		l->ray->wallx = l->ray->posy + l->ray->perpwalldist * l->ray->raydiry;
+	else
+		l->ray->wallx = l->ray->posx + l->ray->perpwalldist * l->ray->raydirx;
+	l->ray->text_type = WALL;
+	l->ray->text_x = l->ray->wallx * TEXTURE_SIZE;
+	if (l->ray->side == 0 && l->ray->raydirx < 0)
+		l->ray->text_x = TEXTURE_SIZE - l->ray->text_x - 1;
+	if (l->ray->side == 1 && l->ray->raydiry > 0)
+		l->ray->text_x = TEXTURE_SIZE - l->ray->text_x - 1;
 }
 
 void	ft_color(t_ray *r)
@@ -62,7 +72,7 @@ void	ft_main_loop(t_data *l, t_ray *r)
 	int	x;
 
 	x = 0;
-	while (x < l->mlx->win_w)
+	while (x < l->mlx->win_h)
 	{
 		r->camerax = 2 * x / (double)l->mlx->win_w - 1;
 		r->raydirx = r->dirx + r->planx * r->camerax;
@@ -70,10 +80,6 @@ void	ft_main_loop(t_data *l, t_ray *r)
 		ft_dda_init(l, r);
 		ft_step_and_sidedist(r);
 		ft_dda(l, r);
-		if (r->side == 0)
-			r->perpwalldist = (r->sidedistx - r->deltadistx);
-		else
-			r->perpwalldist = (r->sidedisty - r->deltadisty);
 		ft_height(l);
 		ft_color(r);
 		ft_verline(l, r, x);

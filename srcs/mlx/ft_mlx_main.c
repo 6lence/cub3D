@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:08:27 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/08 22:11:43 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/09 11:47:57 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	ft_init_mlx_values(t_data *l)
 	int	i;
 	int	j;
 
-	l->mlx->win_w = 1080;
-	l->mlx->win_h = 720;
+	l->mlx->win_w = WIN_W;
+	l->mlx->win_h = WIN_H;
 	i = 0;
 	while (l->map[i])
 	{
