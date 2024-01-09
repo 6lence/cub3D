@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_raycasting_main_loop.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 09:10:41 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/05 13:38:54 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/09 11:25:06 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	ft_main_loop(t_data *l, t_ray *r)
 	int	x;
 
 	x = 0;
-	while (x < l->mlx->win_w)
+	while (x < l->mlx->win_h)
 	{
 		r->camerax = 2 * x / (double)l->mlx->win_w - 1;
 		r->raydirx = r->dirx + r->planx * r->camerax;
@@ -67,10 +67,6 @@ void	ft_main_loop(t_data *l, t_ray *r)
 		ft_dda_init(l, r);
 		ft_step_and_sidedist(r);
 		ft_dda(l, r);
-		if (r->side == 0)
-			r->perpwalldist = (r->sidedistx - r->deltadistx);
-		else
-			r->perpwalldist = (r->sidedisty - r->deltadisty);
 		ft_height(l);
 		ft_color(r);
 		ft_verline(l, r, x);
