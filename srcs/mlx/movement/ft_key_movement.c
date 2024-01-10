@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 20:38:04 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/09 16:14:45 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/10 10:32:09 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_up(t_data *l, t_ray *r)
 
 void	ft_right(t_data *l, t_ray *r)
 {
-	if (l->map[(int)(l->cam->py + r->dirx * MS)]
+	if (l->map[(int)(l->cam->py + r->diry * MS)]
 		[(int)l->cam->px] != '1')
 		l->cam->py += r->diry * MS;
 	if (l->map[(int)(l->cam->py)]
