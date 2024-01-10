@@ -30,6 +30,16 @@ void	ft_height(t_data *l)
 	l->ray->draw_end = (int)(l->ray->line_h / 2 + l->mlx->win_h / 2);
 	if (l->ray->draw_end >= l->mlx->win_h)
 		l->ray->draw_end = l->mlx->win_h - 1;
+	if (l->ray->side == 0)
+		l->ray->wallx = l->ray->posy + l->ray->perpwalldist * l->ray->raydiry;
+	else
+		l->ray->wallx = l->ray->posx + l->ray->perpwalldist * l->ray->raydirx;
+	l->ray->text_type = WALL;
+	l->ray->text_x = l->ray->wallx * TEXTURE_SIZE;
+	if (l->ray->side == 0 && l->ray->raydirx < 0)
+		l->ray->text_x = TEXTURE_SIZE - l->ray->text_x - 1;
+	if (l->ray->side == 1 && l->ray->raydiry > 0)
+		l->ray->text_x = TEXTURE_SIZE - l->ray->text_x - 1;
 }
 
 void	ft_color(t_ray *r)

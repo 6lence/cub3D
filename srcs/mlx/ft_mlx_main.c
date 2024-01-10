@@ -17,8 +17,8 @@ void	ft_init_mlx_values(t_data *l)
 	int	i;
 	int	j;
 
-	l->mlx->win_w = 1080;
-	l->mlx->win_h = 720;
+	l->mlx->win_w = WIN_W;
+	l->mlx->win_h = WIN_H;
 	i = 0;
 	while (l->map[i])
 	{

@@ -18,7 +18,7 @@ typedef struct s_rgb
 	int	r;
 	int	g;
 	int	b;
-}		t_rgb;
+}	t_rgb;
 
 
 typedef struct s_tex
@@ -27,9 +27,9 @@ typedef struct s_tex
 	char			*so;
 	char			*we;
 	char			*ea;
-	struct s_rgb	*F;
-	struct s_rgb	*C;
-}					t_tex;
+	t_rgb			*F;
+	t_rgb			*C;
+}	t_tex;
 
 
 typedef struct s_pars
@@ -38,7 +38,7 @@ typedef struct s_pars
 	int			pos;
 	int			direct_iterations;
 	char		direction;
-}				t_pars;
+}	t_pars;
 
 typedef struct s_mlxdata
 {
@@ -55,15 +55,15 @@ typedef struct s_camera
 {
 	void			*img_ptr;
 	char			*img_adr;
-	struct s_rgb	*walls_p;
-	struct s_rgb	*trans_p;
+	t_rgb			*walls_p;
+	t_rgb			*trans_p;
 	int				bpp;
 	int				line;
 	int				endian;
 	double			px;
 	double			py;
 	int				view;
-}					t_camera;
+}	t_camera;
 
 typedef struct s_minimap
 {
@@ -79,13 +79,13 @@ typedef struct s_minimap
 	int				wall_y;
 	struct s_rgb	*wall;
 	struct s_rgb	*back;
-}					t_minimap;
+}	t_minimap;
 
 typedef struct s_point
 {
 	int	x;
 	int	y;
-}		t_point;
+}	t_point;
 
 typedef struct s_player
 {
@@ -95,8 +95,8 @@ typedef struct s_player
 	float			yd;
 	float			a;
 	int				radius;
-	struct s_rgb	*color;
-}					t_player;
+	t_rgb			*color;
+}	t_player;
 
 typedef struct s_ray
 {
@@ -109,6 +109,7 @@ typedef struct s_ray
 	int				line_h;
 	int				draw_start;
 	int				draw_end;
+	int				text_type;
 	double			posx;
 	double			posy;
 	double			dirx;
@@ -124,8 +125,10 @@ typedef struct s_ray
 	double			fov;
 	double			camerax;
 	double			perpwalldist;
+	double			wallx;
+	double			text_x;
 	t_rgb			*color;
-}			t_ray;
+}	t_ray;
 typedef struct s_data
 {
 	int						file_fd;
@@ -139,6 +142,6 @@ typedef struct s_data
 	struct s_minimap		*mini;
 	struct s_player			*player;
 	struct s_ray			*ray;
-}							t_data;
+}	t_data;
 
 #endif
