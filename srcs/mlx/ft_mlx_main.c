@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:08:27 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/10 10:13:29 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/10 15:28:46 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ int	ft_mlx_part(t_data *l)
 			l->mlx->win_h, WIN_NAME);
 	ft_init_image_rgb(l);
 	ft_image(l);
-	mlx_hook(l->mlx->win_ptr, KeyPress, KeyPressMask, ft_key_hook, l);
+	mlx_hook(l->mlx->win_ptr, 2, KeyPressMask, ft_press, l);
+	mlx_hook(l->mlx->win_ptr, 3, KeyReleaseMask, ft_release, l);
 	mlx_hook(l->mlx->win_ptr, 17, 0L, ft_end_prog, l);
 	mlx_loop(l->mlx->mlx_ptr);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:34:43 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/09 16:15:32 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/10 15:27:12 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,12 @@ int		ft_check_spaces_proximity(t_data *l, char **str, int i);
 int		ft_check_proximity(char **str, int i, size_t *j);
 
 		/*  ft_key_hook	*/
-int		ft_key_hook(int key, t_data *l);
+int		ft_release(int key, t_data *l);
+int		ft_press(int key, t_data *l);
+int		ft_key_hook(t_data *l);
 
 		/*	ft_key_movement	*/
-void	ft_movement(int key, t_data *l);
+void	ft_movement(t_data *l);
 
 		/*	ft_mouse  */
 int		ft_mouse(int x, int y, t_data *l);
