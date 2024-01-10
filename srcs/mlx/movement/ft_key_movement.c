@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 20:38:04 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/10 10:32:09 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/10 15:29:56 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,24 +52,18 @@ void	ft_left(t_data *l, t_ray *r)
 		l->cam->px += r->dirx * MS;
 }
 
-void	ft_movement(int key, t_data *l)
+void	ft_movement(t_data *l)
 {
-	if (key == W || key == XK_Up)
+	if (l->dep->w)
 		ft_up(l, l->ray);
-	else if (key == S || key == XK_Down)
+	if (l->dep->s)
 		ft_down(l, l->ray);
-	else if (key == D)
+	if (l->dep->d)
 		ft_right(l, l->ray);
-	else if (key == A)
+	if (l->dep->a)
 		ft_left(l, l->ray);
-	else if (key == XK_Left || key == XK_Q || l->mlx->mleft == 1)
-	{
+	if (l->dep->l)
 		ft_turn_left(l->ray);
-		l->mlx->mleft = 0;
-	}
-	else if (key == XK_Right || key == XK_E || l->mlx->mright == 1)
-	{
-		l->mlx->mright = 0;
+	if (l->dep->r)
 		ft_turn_right(l->ray);
-	}
 }

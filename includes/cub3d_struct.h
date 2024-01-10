@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:35:31 by qbanet            #+#    #+#             */
-/*   Updated: 2024/01/09 16:13:51 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/10 15:24:50 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct s_mlxdata
 	int		mouse;
 	int		mright;
 	int		mleft;
-}			t_mlxdata;
+}	t_mlxdata;
 
 typedef struct s_camera
 {
@@ -129,12 +129,25 @@ typedef struct s_ray
 	double			text_x;
 	t_rgb			*color;
 }	t_ray;
+
+typedef struct s_dep
+{
+	int w;
+	int a;
+	int s;
+	int d;
+	int l;
+	int r;
+	int f;
+	int	b;
+}	t_dep;
 typedef struct s_data
 {
 	int						file_fd;
 	int						ft_err;
 	char					**file;
 	char					**map;
+	int						esc;
 	struct s_mlxdata		*mlx;
 	struct s_camera			*cam;
 	struct s_pars			*pars;
@@ -142,6 +155,7 @@ typedef struct s_data
 	struct s_minimap		*mini;
 	struct s_player			*player;
 	struct s_ray			*ray;
+	struct s_dep			*dep;
 }	t_data;
 
 #endif
