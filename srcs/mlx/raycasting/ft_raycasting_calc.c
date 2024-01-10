@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_raycasting_calc.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 10:40:23 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/09 11:24:06 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/10 14:26:26 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_step_and_sidedist(t_ray *r)
 	}
 	else
 	{
-		r->stepx = 1;
+		r->stepy = 1;
 		r->sidedisty = (r->mapy + 1.0 - r->posy) * r->deltadisty;
 	}
 }
@@ -40,32 +40,6 @@ void	ft_step_and_sidedist(t_ray *r)
 	Digital Difference Analyzer
 	algorithm used to draw lines.
 */
-
-int	ft_wall(t_data *l, t_ray *r)
-{
-	if (l->map[(int)r->mapy][(int)r->mapx] == '1')
-		return (1);
-	return (0);
-}
-
-int	ft_in_map(t_data *l, t_ray *r)
-{
-	if ((int)r->mapy > 0 && (int)r->mapy < l->pars->map_len
-		&& (int)r->mapx > 0
-		&& (size_t)r->mapx < ft_strlen(l->map[(int)r->mapy])
-		&& !ft_isalnum(l->map[(int)r->mapy][(int)r->mapx]))
-		return (1);
-	return (0);
-}
-
-int	ft_not_map(t_data *l, t_ray *r)
-{
-	if (!((int)r->mapy > 0 && (int)r->mapy < l->pars->map_len
-			&& (int)r->mapx > 0
-			&& (size_t)r->mapx < ft_strlen(l->map[(int)r->mapy])))
-		return (1);
-	return (0);
-}
 
 void	ft_dda(t_data *l, t_ray *r)
 {
@@ -83,7 +57,7 @@ void	ft_dda(t_data *l, t_ray *r)
 			r->mapy += r->stepy;
 			r->side = 1;
 		}
-		if (l->map[(int)r->mapy][(int)r->mapx] == '1')
+		if (l->map[(int)r->mapx][(int)r->mapy] == '1')	
 			r->hit = 1;
 	}
 }

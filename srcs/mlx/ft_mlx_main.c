@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mlx_main.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:08:27 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/09 11:47:57 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/10 10:13:29 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	ft_init_mlx_values(t_data *l)
 		}
 		i++;
 	}
+	l->mlx->mouse = 1;
 }
 
 int	ft_end_prog(t_data *l)
