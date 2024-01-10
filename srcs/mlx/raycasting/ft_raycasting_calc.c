@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 10:40:23 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/09 15:50:10 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/10 14:26:26 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_step_and_sidedist(t_ray *r)
 	}
 	else
 	{
-		r->stepx = 1;
+		r->stepy = 1;
 		r->sidedisty = (r->mapy + 1.0 - r->posy) * r->deltadisty;
 	}
 }

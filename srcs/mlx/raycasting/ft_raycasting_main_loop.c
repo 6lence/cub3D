@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 09:10:41 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/10 14:16:05 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/10 14:27:12 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ void	ft_main_loop(t_data *l, t_ray *r)
 			r->perpwalldist = (r->sidedisty - r->deltadisty);
 		ft_height(l);
 		ft_color(r);
-		printf("%f, %f\n", r->dirx, r->diry);
 		ft_verline(l, r, x);
 		x++;
 	}
