@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 09:10:41 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/09 10:46:17 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/10 14:16:05 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,21 @@ void	ft_color(t_ray *r)
 {
 	if (!r->color)
 		r->color = ft_calloc(1, sizeof(t_rgb));
-	r->color->g = 80;
-	r->color->b = 255 / 2;
-	if (r->side == 1)
-		r->color->g = 160;
+	r->color->r = 0;
+	r->color->g = 0;
+	r->color->b = 0;
+	if (r->side == 1 && r->raydiry < 0)
+		r->color->g = 255;
+	else if (r->side == 1 && r->raydiry >= 0)
+		r->color->b = 255;
+	if (r->side == 0 && r->raydirx < 0)
+		r->color->r = 255;
+	else if (r->side == 0 && r->raydirx >= 0)
+	{
+		r->color->r = 255;
+		r->color->g = 255;
+		r->color->b = 255;
+	}
 }
 
 void	ft_verline(t_data *l, t_ray *r, int x)
@@ -59,8 +70,8 @@ void	ft_main_loop(t_data *l, t_ray *r)
 	while (x < l->mlx->win_w)
 	{
 		r->camerax = 2 * x / (double)l->mlx->win_w - 1;
-		r->raydirx = r->dirx + r->planx * r->camerax;
-		r->raydiry = r->diry + r->plany * r->camerax;
+		r->raydirx = r->dirx + (r->planx * r->camerax);
+		r->raydiry = r->diry + (r->plany * r->camerax);
 		ft_dda_init(r);
 		ft_step_and_sidedist(r);
 		ft_dda(l, r);
@@ -70,6 +81,7 @@ void	ft_main_loop(t_data *l, t_ray *r)
 			r->perpwalldist = (r->sidedisty - r->deltadisty);
 		ft_height(l);
 		ft_color(r);
+		printf("%f, %f\n", r->dirx, r->diry);
 		ft_verline(l, r, x);
 		x++;
 	}

@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 09:50:36 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/09 15:16:32 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/10 14:06:43 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_direction2(t_data *l, t_ray *r)
 	}
 	if (l->pars->direction == 'S')
 	{
-		r->dirx = 1;
+		r->dirx = 	1;
 		r->diry = 0;
 		r->planx = 0;
 		r->plany = -0.66;
