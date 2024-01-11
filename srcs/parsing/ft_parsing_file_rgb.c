@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing_file_rgb.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 20:54:06 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/22 10:20:43 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/11 17:40:40 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_affect(t_data *l, char *str, int i, char letter)
 {
 	if (letter == 'F')
 	{
-		l->tex->F->r= ft_atoi(str + i);
+		l->tex->F->r = ft_atoi(str + i);
 		while (str[i] && str[i] != ',')
 			i++;
 		i++;
@@ -50,12 +50,12 @@ void	ft_affect(t_data *l, char *str, int i, char letter)
 	}
 }
 
-int    ft_get_rgb(char *str, t_data *l, char letter)
+int	ft_get_rgb(char *str, t_data *l, char letter)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (str[i] && !(str[i] < '9' && str[i] > '0'))
+	i = 0;
+	while (str[i] && !(str[i] < '9' && str[i] > '0'))
 		i++;
 	ft_affect(l, str, i, letter);
 	return (0);

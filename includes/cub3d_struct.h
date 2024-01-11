@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_struct.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:35:31 by qbanet            #+#    #+#             */
-/*   Updated: 2024/01/11 10:02:29 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/11 17:39:08 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,10 @@ typedef struct s_rgb
 
 typedef struct s_tex
 {
-	char			*no;
-	char			*so;
-	char			*we;
-	char			*ea;
+	char			**text_path;
 	t_rgb			*F;
 	t_rgb			*C;
 }	t_tex;
-
 
 typedef struct s_pars
 {
@@ -49,6 +45,17 @@ typedef struct s_mlxdata
 	int		mouse;
 	int		mmove;
 }	t_mlxdata;
+
+typedef struct s_mlximg
+{
+	void			*img_ptr;
+	char			*img_data;
+	int				bpp;
+	int				endian;
+	int				line_size;
+	int				width;
+	int				height;
+}	t_mlximg;
 
 typedef struct s_camera
 {
@@ -147,6 +154,7 @@ typedef struct s_data
 	char					**file;
 	char					**map;
 	int						esc;
+	t_mlximg				**textures;
 	struct s_mlxdata		*mlx;
 	struct s_camera			*cam;
 	struct s_pars			*pars;

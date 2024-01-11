@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 12:30:08 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/10 17:49:48 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/11 17:39:37 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,11 @@ void	ft_free_map(char **str)
 
 void	ft_free_textures(t_tex *l)
 {
-	if (l->no)
-		free(l->no);
-	if (l->so)
-		free(l->so);
-	if (l->we)
-		free(l->we);
-	if (l->ea)
-		free(l->ea);
+	int	i;
+
+	i = -1;
+	while (l->text_path[++i])
+		free(l->text_path[i]);
 	if (l->F)
 		free(l->F);
 	if (l->C)
