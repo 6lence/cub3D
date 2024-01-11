@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:35:31 by qbanet            #+#    #+#             */
-/*   Updated: 2024/01/10 15:24:50 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/11 10:02:29 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@ typedef struct s_mlxdata
 	int		win_h;
 	int		win_w;
 	int		mouse;
-	int		mright;
-	int		mleft;
+	int		mmove;
 }	t_mlxdata;
 
 typedef struct s_camera

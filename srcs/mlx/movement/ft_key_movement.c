@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 20:38:04 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/10 15:29:56 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/11 10:05:57 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	ft_movement(t_data *l)
 	if (l->dep->a)
 		ft_left(l, l->ray);
 	if (l->dep->l)
-		ft_turn_left(l->ray);
+		ft_turn_left(l, l->ray);
 	if (l->dep->r)
-		ft_turn_right(l->ray);
+		ft_turn_right(l, l->ray);
 }

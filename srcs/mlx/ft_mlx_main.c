@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mlx_main.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:08:27 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/10 19:13:19 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/11 09:46:59 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int	ft_mlx_part(t_data *l)
 	ft_image(l);
 	mlx_hook(l->mlx->win_ptr, 2, KeyPressMask, ft_press, l);
 	mlx_hook(l->mlx->win_ptr, 3, KeyReleaseMask, ft_release, l);
+	mlx_hook(l->mlx->win_ptr, 6, (1L << 6), ft_mouse, l);
 	mlx_hook(l->mlx->win_ptr, 17, 0L, ft_end_prog, l);
 	mlx_loop_hook(l->mlx->mlx_ptr, ft_key_hook, l);
 	mlx_loop(l->mlx->mlx_ptr);

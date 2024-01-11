@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:34:43 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/10 15:27:12 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/11 10:05:17 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ void	ft_movement(t_data *l);
 int		ft_mouse(int x, int y, t_data *l);
 
 		/*	ft_turn	*/
-void	ft_turn_left(t_ray *r);
-void	ft_turn_right(t_ray *r);
+void	ft_turn_left(t_data *l, t_ray *r);
+void	ft_turn_right(t_data *l, t_ray *r);
 
 		/*	ft_image  */
 int		ft_image(t_data *l);

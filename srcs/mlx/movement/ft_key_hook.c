@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_key_hook.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 12:14:02 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/11 09:33:13 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/11 10:10:15 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,7 @@ int	ft_press(int key, t_data *l)
 		l->dep->r = 1;
 	if (key == ESC)
 		l->esc = 1;
+	if (key == XK_m)
+		l->mlx->mouse *= -1;
 	return (0);
 }
