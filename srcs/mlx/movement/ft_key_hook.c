@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 12:14:02 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/10 17:50:44 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/11 09:33:13 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,5 @@ int	ft_press(int key, t_data *l)
 		l->dep->r = 1;
 	if (key == ESC)
 		l->esc = 1;
-	ft_key_hook(l);
 	return (0);
 }
