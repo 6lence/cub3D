@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:08:27 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/11 18:54:16 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/12 11:47:00 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_text_init(t_data *l)
 		l->textures[i]->img_ptr = mlx_xpm_file_to_image(l->mlx->mlx_ptr,
 				l->tex->text_path[i], &(l->textures[i]->width),
 				&(l->textures[i]->height));
-		l->textures[i]->img_data = mlx_get_data_addr(l->textures[i]->img_ptr,
+		l->textures[i]->img_data = (int *)mlx_get_data_addr(l->textures[i]->img_ptr,
 				&(l->textures[i]->bpp), &(l->textures[i]->line_size),
 				&(l->textures[i]->endian));
 	}

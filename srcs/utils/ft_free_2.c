@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 08:46:41 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/05 14:06:12 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/12 11:56:10 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_free_ray(t_ray *r)
 {
-	if (r->color)
-		free(r->color);
+	// if (r->color)
+	// 	free(r->color);
 	free(r);
 }
 

@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 09:15:50 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/11 18:52:45 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/12 10:47:55 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 # define MOV				0.1
 # define TEXTURE_SIZE		128
 
-# define NB_TEXTURES		6
-# define NB_TEXTURES_SPRITE	
+# define NB_TEXTURES		21
+# define NB_TEXTURES_SPRITE	16
 # define NB_TEXTURES_MUR	4
 
 # define NO					0

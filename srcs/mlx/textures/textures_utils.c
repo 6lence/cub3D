@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:44:14 by qbanet            #+#    #+#             */
-/*   Updated: 2024/01/11 18:57:22 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/12 11:45:32 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	add_door_n_sprites(t_data *l, int i)
 	l->textures[i]->img_ptr = mlx_xpm_file_to_image(l->mlx->mlx_ptr,
 			"textures/porte.xpm", &(l->textures[i]->width),
 			&(l->textures[i]->height));
-	l->textures[i]->img_data = mlx_get_data_addr(l->textures[i]->img_ptr,
+	l->textures[i]->img_data = (int *)mlx_get_data_addr(l->textures[i]->img_ptr,
 			&(l->textures[i]->bpp), &(l->textures[i]->line_size),
 			&(l->textures[i]->endian));
 	add_sprite(l, ++i, "textures/explosion/1.xpm");
@@ -49,7 +49,26 @@ static void	add_sprite(t_data *l, int i, char *path)
 	l->textures[i]->img_ptr = mlx_xpm_file_to_image(l->mlx->mlx_ptr,
 			path, &(l->textures[i]->width),
 			&(l->textures[i]->height));
-	l->textures[i]->img_data = mlx_get_data_addr(l->textures[i]->img_ptr,
+	l->textures[i]->img_data = (int *)mlx_get_data_addr(l->textures[i]->img_ptr,
 			&(l->textures[i]->bpp), &(l->textures[i]->line_size),
 			&(l->textures[i]->endian));
+}
+
+int	select_text(t_data *l)
+{
+	if (l->ray->side == 0)
+	{
+		if (l->ray->raydirx < 0)
+			return (NO);
+		else
+			return (WE);
+	}
+	else
+	{
+		if (l->ray->raydiry > 0)
+			return (EA);
+		else
+			return (SO);
+	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:35:31 by qbanet            #+#    #+#             */
-/*   Updated: 2024/01/11 17:39:08 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/12 11:50:19 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct s_mlxdata
 typedef struct s_mlximg
 {
 	void			*img_ptr;
-	char			*img_data;
+	int				*img_data;
 	int				bpp;
 	int				endian;
 	int				line_size;
@@ -116,6 +116,8 @@ typedef struct s_ray
 	int				draw_start;
 	int				draw_end;
 	int				text_type;
+	int				text_x;
+	int				text_y;
 	double			posx;
 	double			posy;
 	double			dirx;
@@ -132,8 +134,9 @@ typedef struct s_ray
 	double			camerax;
 	double			perpwalldist;
 	double			wallx;
-	double			text_x;
-	t_rgb			*color;
+	double			step;
+	double			texpos;
+	int				color;
 }	t_ray;
 
 typedef struct s_dep

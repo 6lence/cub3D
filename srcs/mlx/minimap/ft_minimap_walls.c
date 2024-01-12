@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_minimap_walls.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:03:31 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/26 08:28:31 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/12 11:55:01 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_square(t_data *l, t_rgb *color)
+void	ft_square(t_data *l, int color)
 {
 	int	i;
 	int	j;
@@ -38,9 +38,9 @@ void	ft_loop_conditions(t_data *l, int io, int jo)
 		&& jo < (int)ft_strlen(l->map[io]) && jo >= 0)
 	{
 		if (l->map[io] && l->map[io][jo] && l->map[io][jo] == '1')
-			ft_square(l, l->mini->wall);
+			ft_square(l, 200200200);
 		else if (l->map[io] && l->map[io][jo] && l->map[io][jo] != ' ')
-			ft_square(l, l->mini->back);
+			ft_square(l, 200200000);
 	}
 }
 
