@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 09:15:50 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/12 10:47:55 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/13 11:34:17 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@
 # define NB_TEXTURES		21
 # define NB_TEXTURES_SPRITE	16
 # define NB_TEXTURES_MUR	4
+
+# define SKY_COLOR			0x77B5FE
+# define GROUND_COLOR		0xF4E67D
+
+# define MINIMAP_BACKGROUND	0x555B61
+# define MINIMAP_PLAYER		0x002B00
+# define MINIMAP_WALL		0xC2B44B
+# define MINIMAP_FLOOR		0x808080
 
 # define NO					0
 # define SO					1

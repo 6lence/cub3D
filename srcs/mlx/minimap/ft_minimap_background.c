@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 22:40:58 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/12 11:53:03 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/13 11:23:17 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_minimap_background(t_data *l)
 		while (j < l->mini->mapxo)
 		{
 			if (j % 2 == 0 && i % 2 == 0)
-				ft_put_pixel(l, 100100100, i, j);
+				ft_put_pixel(l, MINIMAP_BACKGROUND, i, j);
 			j++;
 		}
 		i++;

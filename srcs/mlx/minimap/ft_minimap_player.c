@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 11:23:10 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/12 11:52:51 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/13 11:23:56 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_place_player(t_data *l)
 		{
 			if (pow(x - l->player->x, 2) + pow(y - l->player->y, 2)
 				<= pow(l->player->radius, 2))
-				ft_put_pixel(l, 125125125, y, x);
+				ft_put_pixel(l, MINIMAP_PLAYER, y, x);
 			x++;
 		}
 		y++;

@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 12:03:31 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/12 11:55:01 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/13 11:27:30 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void	ft_loop_conditions(t_data *l, int io, int jo)
 		&& jo < (int)ft_strlen(l->map[io]) && jo >= 0)
 	{
 		if (l->map[io] && l->map[io][jo] && l->map[io][jo] == '1')
-			ft_square(l, 200200200);
+			ft_square(l, MINIMAP_WALL);
 		else if (l->map[io] && l->map[io][jo] && l->map[io][jo] != ' ')
-			ft_square(l, 200200000);
+			ft_square(l, MINIMAP_FLOOR);
 	}
 }
 

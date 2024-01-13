@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:08:27 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/12 11:47:00 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/13 11:54:36 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ void	ft_init_image_rgb(t_data *l)
 	l->cam->walls_p->r = 255;
 	l->cam->walls_p->g = 0;
 	l->cam->walls_p->b = 0;
+	l->cam->walls_p->couleur = (l->cam->walls_p->r << 16)
+			| (l->cam->walls_p->g << 8) | l->cam->walls_p->b;
 }
 
 int	ft_mlx_part(t_data *l)

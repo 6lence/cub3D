@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:35:31 by qbanet            #+#    #+#             */
-/*   Updated: 2024/01/12 11:50:19 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/13 11:39:30 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ typedef struct s_rgb
 	int	r;
 	int	g;
 	int	b;
+	int	couleur;
 }	t_rgb;
 
 
