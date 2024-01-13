@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 09:10:41 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/13 11:20:19 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/13 13:31:09 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@ void	ft_height(t_data *l)
 		l->ray->wallx = l->ray->posy + l->ray->perpwalldist * l->ray->raydiry;
 	else
 		l->ray->wallx = l->ray->posx + l->ray->perpwalldist * l->ray->raydirx;
+	l->ray->wallx -= floor((l->ray->wallx));
 	l->ray->text_type = select_text(l);
-	l->ray->text_x = (int)l->ray->wallx * TEXTURE_SIZE;
+	l->ray->text_x = (int)(l->ray->wallx * TEXTURE_SIZE);
 	if (l->ray->side == 0 && l->ray->raydirx < 0)
 		l->ray->text_x = TEXTURE_SIZE - l->ray->text_x - 1;
 	if (l->ray->side == 1 && l->ray->raydiry > 0)
@@ -56,12 +57,9 @@ void	ft_color(t_ray *r, t_data *l, int x)
 	{
 		l->ray->text_y = (int)l->ray->texpos & (TEXTURE_SIZE - 1);
 		l->ray->texpos += l->ray->step;
-		// printf("text_type = %d text_x = %d et text_y = %d\n", l->ray->text_type, l->ray->text_x, l->ray->text_y);
-		// l->ray->color = l->textures[l->ray->text_type]->img_data[TEXTURE_SIZE
-		// 	* l->ray->text_y + l->ray->text_x];
-		// printf("color = %d\n\n", l->ray->color);
-		// if (l->ray->color > 0)
-		// 	ft_put_pixel(l, l->ray->color, x, y);
+		l->ray->color = l->textures[l->ray->text_type]->img_data[TEXTURE_SIZE
+			* l->ray->text_y + l->ray->text_x];
+	 	ft_put_pixel(l, l->ray->color, y, x);
 		y++;
 	}
 }
