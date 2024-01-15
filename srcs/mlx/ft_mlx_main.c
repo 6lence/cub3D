@@ -3,14 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mlx_main.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:08:27 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/11 09:46:59 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/15 10:35:09 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+static void	ft_text_init(t_data *l)
+{
+	int	i;
+
+	i = -1;
+	l->textures = ft_calloc(NB_TEXTURES, sizeof(t_mlximg *));
+	while (++i < NB_TEXTURES_MUR)
+	{
+		l->textures[i] = ft_calloc(1, sizeof(t_mlximg));
+		l->textures[i]->img_ptr = mlx_xpm_file_to_image(l->mlx->mlx_ptr,
+				l->tex->text_path[i], &(l->textures[i]->width),
+				&(l->textures[i]->height));
+		l->textures[i]->img_data = (int *)mlx_get_data_addr(l->textures[i]->img_ptr,
+				&(l->textures[i]->bpp), &(l->textures[i]->line_size),
+				&(l->textures[i]->endian));
+	}
+	add_door_n_sprites(l, i);
+}
 
 void	ft_init_mlx_values(t_data *l)
 {
@@ -41,6 +60,7 @@ void	ft_init_mlx_values(t_data *l)
 
 int	ft_end_prog(t_data *l)
 {
+	ft_free_text_tab(l);
 	ft_free(l);
 	exit(EXIT_SUCCESS);
 	return (0);
@@ -53,6 +73,8 @@ void	ft_init_image_rgb(t_data *l)
 	l->cam->walls_p->r = 255;
 	l->cam->walls_p->g = 0;
 	l->cam->walls_p->b = 0;
+	l->cam->walls_p->couleur = (l->cam->walls_p->r << 16)
+			| (l->cam->walls_p->g << 8) | l->cam->walls_p->b;
 }
 
 int	ft_mlx_part(t_data *l)
@@ -64,6 +86,7 @@ int	ft_mlx_part(t_data *l)
 	l->mlx->win_ptr = mlx_new_window(l->mlx->mlx_ptr, l->mlx->win_w,
 			l->mlx->win_h, WIN_NAME);
 	ft_init_image_rgb(l);
+	ft_text_init(l);
 	ft_image(l);
 	mlx_hook(l->mlx->win_ptr, 2, KeyPressMask, ft_press, l);
 	mlx_hook(l->mlx->win_ptr, 3, KeyReleaseMask, ft_release, l);

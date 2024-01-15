@@ -18,6 +18,7 @@ typedef struct s_rgb
 	int	r;
 	int	g;
 	int	b;
+	int	couleur;
 }	t_rgb;
 
 
@@ -49,7 +50,7 @@ typedef struct s_mlxdata
 typedef struct s_mlximg
 {
 	void			*img_ptr;
-	char			*img_data;
+	int				*img_data;
 	int				bpp;
 	int				endian;
 	int				line_size;
@@ -116,6 +117,8 @@ typedef struct s_ray
 	int				draw_start;
 	int				draw_end;
 	int				text_type;
+	int				text_x;
+	int				text_y;
 	double			posx;
 	double			posy;
 	double			dirx;
@@ -132,8 +135,9 @@ typedef struct s_ray
 	double			camerax;
 	double			perpwalldist;
 	double			wallx;
-	double			text_x;
-	t_rgb			*color;
+	double			step;
+	double			texpos;
+	int				color;
 }	t_ray;
 
 typedef struct s_dep

@@ -107,7 +107,13 @@ int	ft_parsing_file(t_data *l)
 	int	i;
 	int	b;
 
-	ft_text_init(l);
+	l->ft_err = 0;
+	l->pars->pos = 0;
+	ft_verify_rgb_values(l);
+	l->tex->text_path = ft_calloc(NB_TEXTURES_MUR + 1, sizeof(char *));
+	i = -1;
+	// while (++i < NB_TEXTURES_MUR)
+	// 	l->tex->text_path[i] = ft_calloc(255, sizeof(char));
 	i = 0;
 	while (l->file[i])
 		ft_get_map_len(l, l->file[i++]);

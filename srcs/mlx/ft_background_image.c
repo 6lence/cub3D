@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_background_image.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:23:23 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/22 10:26:01 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/13 11:44:22 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void	ft_put_backgroud_pixel(t_data *l)
 		while (j < l->mlx->win_w)
 		{
 			if (i < l->mlx->win_h / 2)
-				ft_put_pixel(l, l->tex->C, i, j);
+				ft_put_pixel(l, l->tex->C->couleur, i, j);
 			else
-				ft_put_pixel(l, l->tex->F, i, j);
+				ft_put_pixel(l, l->tex->F->couleur, i, j);
 			j++;
 		}
 		i++;

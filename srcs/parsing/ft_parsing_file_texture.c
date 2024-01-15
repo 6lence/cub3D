@@ -29,9 +29,7 @@ char	*ft_get_file(char *str, char *var)
 	j = 0;
 	while (str[i + j])
 		j++;
-	sub = ft_substr(str, i, i + j);
-	res = ft_strdup(sub);
-	free(sub);
+	res = ft_substr(str, i, i + j);
 	return (res);
 }
 

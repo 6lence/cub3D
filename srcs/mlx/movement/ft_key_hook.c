@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_key_hook.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 12:14:02 by mescobar          #+#    #+#             */
 /*   Updated: 2024/01/15 10:13:53 by mescobar         ###   ########.fr       */
@@ -40,6 +40,7 @@ int	ft_key_hook(t_data *l)
 {
 	if (l->esc == 1)
 	{
+		ft_free_text_tab(l);
 		ft_free(l);
 		exit(EXIT_SUCCESS);
 		return (1);

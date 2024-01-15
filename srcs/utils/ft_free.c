@@ -26,9 +26,9 @@ void	ft_free_textures(t_tex *l)
 {
 	int	i;
 
-	i = 0;
-	while (i < 4)
-		free(l->text_path[i++]);
+	i = -1;
+	while (l->text_path[++i])
+		free(l->text_path[i]);
 	free(l->text_path);
 	if (l->F)
 		free(l->F);
@@ -66,7 +66,7 @@ void	ft_free(t_data *l)
 		if (l->player)
 			ft_free_player(l->player);
 		if (l->ray)
-			ft_free_ray(l->ray);
+				free(l->ray);
 		if (l->mlx)
 			ft_free_mlx(l->mlx);
 		free(l);
