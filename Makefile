@@ -40,6 +40,7 @@ SRC_FILES = main.c \
 			mlx/movement/ft_turn.c \
 			mlx/movement/ft_mouse.c \
 			mlx/textures/textures_utils.c \
+			mlx/textures/sprites.c \
 			utils/ft_free.c \
 			utils/ft_free_2.c \
 			utils/ft_create_struct.c 

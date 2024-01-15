@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:35:31 by qbanet            #+#    #+#             */
-/*   Updated: 2024/01/14 12:19:04 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/15 11:28:00 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,19 @@ typedef struct s_mlximg
 	int				width;
 	int				height;
 }	t_mlximg;
+
+typedef struct s_sprites
+{
+	int				line_h;
+	int				draw_start;
+	int				draw_end;
+	int				text_x;
+	int				text_y;
+	double			wallx;
+	double			step;
+	double			texpos;
+	int				color;
+}	t_sprites
 
 typedef struct s_camera
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_image.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 12:28:07 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/09 11:49:20 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/15 11:03:01 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	ft_image(t_data *l)
 	ft_put_backgroud_pixel(l);
 	ft_raycasting(l);
 	ft_put_minimap(l);
+	display_sprite(l);
 	mlx_put_image_to_window(l->mlx->mlx_ptr, l->mlx->win_ptr,
 		l->cam->img_ptr, 0, 0);
 	return (0);
