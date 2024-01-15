@@ -1,10 +1,11 @@
-SO another/thing
+SO textures/mur_N_S.xpm
 
-NO something/like/that
+NO textures/mur_N_S.xpm
 
-WE texture/from/nowhere
+WE textures/mur_E_W.xpm
 
-EA fjalskfjs;lfkavkjcvkajnv     
+EA textures/mur_E_W.xpm
+
 
         1111111111111111111111111
         1000000000110000000000001

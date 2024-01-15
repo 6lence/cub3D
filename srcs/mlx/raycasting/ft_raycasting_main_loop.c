@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_raycasting_main_loop.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 09:10:41 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/10 14:27:12 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/13 13:53:48 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,42 +34,34 @@ void	ft_height(t_data *l)
 		l->ray->wallx = l->ray->posy + l->ray->perpwalldist * l->ray->raydiry;
 	else
 		l->ray->wallx = l->ray->posx + l->ray->perpwalldist * l->ray->raydirx;
-	l->ray->text_type = WALL;
-	l->ray->text_x = l->ray->wallx * TEXTURE_SIZE;
+	l->ray->wallx -= floor((l->ray->wallx));
+	l->ray->text_type = select_text(l);
+	l->ray->text_x = (int)(l->ray->wallx * TEXTURE_SIZE);
 	if (l->ray->side == 0 && l->ray->raydirx < 0)
 		l->ray->text_x = TEXTURE_SIZE - l->ray->text_x - 1;
 	if (l->ray->side == 1 && l->ray->raydiry > 0)
 		l->ray->text_x = TEXTURE_SIZE - l->ray->text_x - 1;
 }
 
-void	ft_color(t_ray *r)
+void	ft_color(t_ray *r, t_data *l, int x)
 {
-	if (!r->color)
-		r->color = ft_calloc(1, sizeof(t_rgb));
-	r->color->r = 0;
-	r->color->g = 0;
-	r->color->b = 0;
-	if (r->side == 1 && r->raydiry < 0)
-		r->color->g = 255;
-	else if (r->side == 1 && r->raydiry >= 0)
-		r->color->b = 255;
-	if (r->side == 0 && r->raydirx < 0)
-		r->color->r = 255;
-	else if (r->side == 0 && r->raydirx >= 0)
+	int	y;
+
+	r += 0;
+	x += 0;
+	y = l->ray->draw_start;
+	l->ray->step = 1.0 * TEXTURE_SIZE / l->ray->line_h;
+	l->ray->texpos = (l->ray->draw_start - WIN_H / 2 + l->ray->line_h / 2)
+			* l->ray->step;
+	while (y < l->ray->draw_end)
 	{
-		r->color->r = 255;
-		r->color->g = 255;
-		r->color->b = 255;
+		l->ray->text_y = (int)l->ray->texpos & (TEXTURE_SIZE - 1);
+		l->ray->texpos += l->ray->step;
+		l->ray->color = l->textures[l->ray->text_type]->img_data[TEXTURE_SIZE
+			* l->ray->text_y + l->ray->text_x];
+		ft_put_pixel(l, l->ray->color, y, x);
+		y++;
 	}
-}
-
-void	ft_verline(t_data *l, t_ray *r, int x)
-{
-	int	tmp;
-
-	tmp = r->draw_start;
-	while (tmp <= r->draw_end)
-		ft_put_pixel(l, r->color, tmp++, x);
 }
 
 void	ft_main_loop(t_data *l, t_ray *r)
@@ -90,8 +82,7 @@ void	ft_main_loop(t_data *l, t_ray *r)
 		else
 			r->perpwalldist = (r->sidedisty - r->deltadisty);
 		ft_height(l);
-		ft_color(r);
-		ft_verline(l, r, x);
+		ft_color(r, l, x);
 		x++;
 	}
 }

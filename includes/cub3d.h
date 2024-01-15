@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:34:43 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/11 10:05:17 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/15 10:22:35 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void	ft_free_cam(t_data *l);
 void	ft_free_minimap(t_minimap *l);
 void	ft_free_player(t_player *l);
 void	ft_free_ray(t_ray *r);
+void	ft_free_text_tab(t_data *l);
 
 		/*	ft_mlx_main	*/
 int		ft_mlx_part(t_data *l);
@@ -99,8 +100,7 @@ void	ft_create_background(t_data *l);
 void	ft_put_backgroud_pixel(t_data *l);
 
 		/*	ft_put_pixel  */
-void	ft_put_pixel(t_data *l, t_rgb *Color, int i, int j);
-void	ft_put_line(t_data *l, t_rgb *color, t_point pt1, t_point pt2);
+void	ft_put_pixel(t_data *l, int color, int i, int j);
 
 		/*	ft_minimap	*/
 void	ft_init_minimap_values(t_data *l);
@@ -114,7 +114,7 @@ void	ft_place_player(t_data *l);
 void	ft_minimap_background(t_data *l);
 
 		/*	ft_minimap_walls  */
-void	ft_square(t_data *l, t_rgb *color);
+void	ft_square(t_data *l, int color);
 void	ft_loop_conditions(t_data *l, int io, int jo);
 void	ft_minimap_walls(t_data *l);
 
@@ -130,10 +130,13 @@ void	ft_dda(t_data *l, t_ray *r);
 		/*	ft_raycasting_main_loop	 */
 void	ft_dda_init(t_ray *r);
 void	ft_height(t_data *l);
-void	ft_color(t_ray *r);
+void	ft_color(t_ray *r, t_data *l, int x);
 void	ft_verline(t_data *l, t_ray *r, int x);
 void	ft_main_loop(t_data *l, t_ray *r);
 
+		/*	textures	*/
+void	add_door_n_sprites(t_data *l, int i);
+int		select_text(t_data *l);
 
 		/*	ft_create_struct	*/
 t_point	ft_point_st(int i, int j);

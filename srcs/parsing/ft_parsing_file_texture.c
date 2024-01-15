@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 11:06:34 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/11 17:36:04 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/15 10:08:29 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_get_file(char *str, char *var)
 	j = 0;
 	while (str[i + j])
 		j++;
-	res = ft_strdup(ft_substr(str, i, i + j));
+	res = ft_substr(str, i, i + j);
 	return (res);
 }
 

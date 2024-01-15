@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:22:58 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/11 17:41:11 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/15 10:09:30 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,10 +109,10 @@ int	ft_parsing_file(t_data *l)
 	l->ft_err = 0;
 	l->pars->pos = 0;
 	ft_verify_rgb_values(l);
-	l->tex->text_path = ft_calloc(5, sizeof(char *));
+	l->tex->text_path = ft_calloc(NB_TEXTURES_MUR + 1, sizeof(char *));
 	i = -1;
-	while (++i < 4)
-		l->tex->text_path[i] = ft_calloc(255, sizeof(char));
+	// while (++i < NB_TEXTURES_MUR)
+	// 	l->tex->text_path[i] = ft_calloc(255, sizeof(char));
 	i = 0;
 	while (l->file[i])
 		ft_get_map_len(l, l->file[i++]);

@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 12:30:08 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/11 17:39:37 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/15 10:27:45 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	ft_free_textures(t_tex *l)
 	i = -1;
 	while (l->text_path[++i])
 		free(l->text_path[i]);
+	free(l->text_path);
 	if (l->F)
 		free(l->F);
 	if (l->C)
@@ -65,7 +66,7 @@ void	ft_free(t_data *l)
 		if (l->player)
 			ft_free_player(l->player);
 		if (l->ray)
-			ft_free_ray(l->ray);
+				free(l->ray);
 		if (l->mlx)
 			ft_free_mlx(l->mlx);
 		free(l);
