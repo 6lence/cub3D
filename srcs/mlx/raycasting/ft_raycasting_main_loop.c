@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 09:10:41 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/13 13:31:09 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/13 13:53:48 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	ft_color(t_ray *r, t_data *l, int x)
 		l->ray->texpos += l->ray->step;
 		l->ray->color = l->textures[l->ray->text_type]->img_data[TEXTURE_SIZE
 			* l->ray->text_y + l->ray->text_x];
-	 	ft_put_pixel(l, l->ray->color, y, x);
+		ft_put_pixel(l, l->ray->color, y, x);
 		y++;
 	}
 }

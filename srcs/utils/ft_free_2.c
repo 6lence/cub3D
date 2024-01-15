@@ -6,18 +6,11 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 08:46:41 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/12 11:56:10 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/15 10:36:54 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	ft_free_ray(t_ray *r)
-{
-	// if (r->color)
-	// 	free(r->color);
-	free(r);
-}
 
 void	ft_free_player(t_player *l)
 {
@@ -38,4 +31,17 @@ void	ft_free_cam(t_data *l)
 	free(l->cam->trans_p);
 	mlx_destroy_image(l->mlx->mlx_ptr, l->cam->img_ptr);
 	free(l->cam);
+}
+
+void	ft_free_text_tab(t_data *l)
+{
+	int	i;
+
+	i = -1;
+	while (++i < NB_TEXTURES)
+	{
+		mlx_destroy_image(l->mlx->mlx_ptr, l->textures[i]->img_ptr);
+		free(l->textures[i]);
+	}
+	free(l->textures);
 }

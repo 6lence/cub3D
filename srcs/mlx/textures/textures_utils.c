@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:44:14 by qbanet            #+#    #+#             */
-/*   Updated: 2024/01/13 13:33:17 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/14 12:10:15 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,14 @@ int	select_text(t_data *l)
 		if (l->ray->raydirx < 0)
 			return (NO);
 		else
-			return (SO);
+			return (WE);
 	}
 	else
 	{
 		if (l->ray->raydiry > 0)
 			return (EA);
 		else
-			return (WE);
+			return (SO);
 	}
 	return (0);
 }

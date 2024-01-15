@@ -6,13 +6,13 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:08:27 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/13 11:54:36 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/15 10:35:09 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_text_init(t_data *l)
+static void	ft_text_init(t_data *l)
 {
 	int	i;
 
@@ -60,6 +60,7 @@ void	ft_init_mlx_values(t_data *l)
 
 int	ft_end_prog(t_data *l)
 {
+	ft_free_text_tab(l);
 	ft_free(l);
 	exit(EXIT_SUCCESS);
 	return (0);

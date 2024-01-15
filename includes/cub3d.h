@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:34:43 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/12 11:54:51 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/15 10:22:35 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void	ft_free_cam(t_data *l);
 void	ft_free_minimap(t_minimap *l);
 void	ft_free_player(t_player *l);
 void	ft_free_ray(t_ray *r);
+void	ft_free_text_tab(t_data *l);
 
 		/*	ft_mlx_main	*/
 int		ft_mlx_part(t_data *l);
