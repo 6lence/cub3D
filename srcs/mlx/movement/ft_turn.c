@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 18:07:55 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/15 10:32:46 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/15 10:53:42 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ void	ft_look_door(t_data *l)
 {
 	size_t	i;
 	size_t	j;
-	int	res;
 
-	res = 0;
 	i = (size_t)l->cam->py - 1;
 	while (i < (size_t)l->cam->py + 2)
 	{
@@ -30,13 +28,17 @@ void	ft_look_door(t_data *l)
 				&& (i != (size_t)l->cam->py
 				|| j != (size_t)l->cam->px)
 				&& l->map[i][j] == '2')
-				res = 1;
+				l->map[i][j] = '3';
+			else if (i < (size_t)l->pars->map_len
+				&& j < ft_strlen(l->map[i])
+				&& (i != (size_t)l->cam->py
+				|| j != (size_t)l->cam->px)
+				&& l->map[i][j] == '3')
+				l->map[i][j] = '2';
 			j++;
 		}
 		i++;
 	}
-	if (res)
-		l->door *= -1;
 }
 
 int	ft_door(t_data *l, int i, int j)
