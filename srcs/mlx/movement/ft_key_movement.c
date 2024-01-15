@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 20:38:04 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/11 10:05:57 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/15 10:04:31 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,40 +15,56 @@
 void	ft_down(t_data *l, t_ray *r)
 {
 	if (l->map[(int)(l->cam->py - r->dirx * MS)]
-		[(int)l->cam->px] != '1')
+		[(int)l->cam->px] != '1'
+		&& !ft_door(l, (int)(l->cam->py - r->dirx * MS),
+		(int)l->cam->px))
 		l->cam->py -= r->dirx * MS;
 	if (l->map[(int)(l->cam->py)]
-		[(int)(l->cam->px - r->diry * MS)] != '1')
+		[(int)(l->cam->px - r->diry * MS)] != '1'
+		&& !ft_door(l, (int)(l->cam->py),
+		(int)(l->cam->px - r->diry * MS)))
 		l->cam->px -= r->diry * MS;
 }
 
 void	ft_up(t_data *l, t_ray *r)
 {
 	if (l->map[(int)(l->cam->py + r->dirx * MS)]
-		[(int)l->cam->px] != '1')
+		[(int)l->cam->px] != '1'
+		&& !ft_door(l, (int)(l->cam->py + r->dirx * MS),
+		(int)l->cam->px))
 		l->cam->py += r->dirx * MS;
 	if (l->map[(int)(l->cam->py)]
-		[(int)(l->cam->px + r->diry * MS)] != '1')
+		[(int)(l->cam->px + r->diry * MS)] != '1'
+		&& !ft_door(l, (int)(l->cam->py),
+		(int)(l->cam->px + r->diry * MS)))
 		l->cam->px += r->diry * MS;
 }
 
 void	ft_right(t_data *l, t_ray *r)
 {
 	if (l->map[(int)(l->cam->py + r->diry * MS)]
-		[(int)l->cam->px] != '1')
+		[(int)l->cam->px] != '1'
+		&& !ft_door(l, (int)(l->cam->py + r->diry * MS),
+		(int)l->cam->px))
 		l->cam->py += r->diry * MS;
 	if (l->map[(int)(l->cam->py)]
-		[(int)(l->cam->px - r->dirx * MS)] != '1')
+		[(int)(l->cam->px - r->dirx * MS)] != '1'
+		&& !ft_door(l, (int)(l->cam->py),
+		(int)(l->cam->px - r->dirx * MS)))
 		l->cam->px -= r->dirx * MS;
 }
 
 void	ft_left(t_data *l, t_ray *r)
 {
 	if (l->map[(int)(l->cam->py - r->diry * MS)]
-		[(int)l->cam->px] != '1')
+		[(int)l->cam->px] != '1'
+		&& !ft_door(l, (int)(l->cam->py - r->diry * MS),
+		(int)l->cam->px))
 		l->cam->py -= r->diry * MS;
 	if (l->map[(int)(l->cam->py)]
-		[(int)(l->cam->px + r->dirx * MS)] != '1')
+		[(int)(l->cam->px + r->dirx * MS)] != '1'
+		&& !ft_door(l, (int)(l->cam->py),
+		(int)(l->cam->px + r->dirx * MS)))
 		l->cam->px += r->dirx * MS;
 }
 
