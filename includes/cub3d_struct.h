@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_struct.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:35:31 by qbanet            #+#    #+#             */
 /*   Updated: 2024/01/15 13:30:21 by qbanet           ###   ########.fr       */
@@ -171,6 +171,7 @@ typedef struct s_data
 	char					**file;
 	char					**map;
 	int						esc;
+	int						door;
 	t_mlximg				**textures;
 	struct s_mlxdata		*mlx;
 	struct s_camera			*cam;

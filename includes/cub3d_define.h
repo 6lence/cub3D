@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_define.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 09:15:50 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/15 10:01:06 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/15 11:02:00 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define M_PI				3.14159265358979323846
 # define MINI_P				10
 # define R					4
-# define ROT_SPEED 			0.015
+# define ROT_SPEED 			0.02
 # define MS					0.025
 # define MOV				0.1
 # define TEXTURE_SIZE		128

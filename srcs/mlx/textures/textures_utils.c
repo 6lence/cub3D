@@ -60,14 +60,16 @@ static void	add_sprite(t_data *l, int i, char *path)
 
 int	select_text(t_data *l)
 {
+	if (l->ray->hit == 2)
+		return (4);
 	if (l->ray->side == 0)
 	{
-		if (l->ray->raydirx < 0)
+		if (l->ray->raydirx < 0 && l->ray->hit == 1)
 			return (NO);
 		else
 			return (WE);
 	}
-	else
+	else if (l->ray->hit == 1)
 	{
 		if (l->ray->raydiry > 0)
 			return (EA);

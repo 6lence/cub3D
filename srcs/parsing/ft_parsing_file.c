@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing_file.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:22:58 by mescobar          #+#    #+#             */
 /*   Updated: 2024/01/15 13:34:46 by qbanet           ###   ########.fr       */
@@ -22,11 +22,11 @@ int	ft_check_map_validity(t_data *l, char **map, int i, int *b)
 		c++;
 	if (map[i][c] && (map[i][c] <= 'Z' && map[i][c] >= 'A'))
 		return (0);
-	*b = *b + 1;
 	if (ft_check_direction(l, map[i]))
 		return (1);
 	if (ft_check_ceiling(l, map[i], *b))
 		return (1);
+	*b = *b + 1;
 	if (ft_check_walls(l, map, i, *b))
 		return (1);
 	return (0);
@@ -96,6 +96,7 @@ void	ft_get_map_len(t_data *l, char *str)
 			|| str[i] == '0' || str[i] == 'N'
 			|| str[i] == 'S' || str[i] == 'W'
 			|| str[i] == 'E' || str[i] == 32
+			|| str[i] == '2'
 			|| (str[i] < 14 && str[i] > 6)))
 		i++;
 	l->pars->map_len++;

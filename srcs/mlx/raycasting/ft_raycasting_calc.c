@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_raycasting_calc.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 10:40:23 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/10 14:26:26 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/15 11:47:25 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,9 @@ void	ft_dda(t_data *l, t_ray *r)
 			r->mapy += r->stepy;
 			r->side = 1;
 		}
-		if (l->map[(int)r->mapx][(int)r->mapy] == '1')	
+		if (l->map[(int)r->mapx][(int)r->mapy] == '1')
 			r->hit = 1;
+		if (l->map[(int)r->mapx][(int)r->mapy] == '2')
+			r->hit = 2;
 	}
 }

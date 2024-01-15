@@ -75,6 +75,8 @@ void	ft_movement(t_data *l);
 int		ft_mouse(int x, int y, t_data *l);
 
 		/*	ft_turn	*/
+void	ft_look_door(t_data *l);
+int		ft_door(t_data *l, int i, int j);
 void	ft_turn_left(t_data *l, t_ray *r);
 void	ft_turn_right(t_data *l, t_ray *r);
 
