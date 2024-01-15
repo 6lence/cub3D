@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:35:31 by qbanet            #+#    #+#             */
-/*   Updated: 2024/01/15 11:28:00 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/15 13:30:21 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ typedef struct s_sprites
 	double			step;
 	double			texpos;
 	int				color;
-}	t_sprites
+}	t_sprites;
 
 typedef struct s_camera
 {

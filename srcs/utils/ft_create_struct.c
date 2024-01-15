@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_create_struct.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:39:08 by mescobar          #+#    #+#             */
-/*   Updated: 2023/12/24 00:20:59 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/15 14:08:05 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,17 @@ t_point	ft_point_st(int i, int j)
 	k.x = j;
 	k.y = i;
 	return (k);
+}
+
+int	ft_verif_file_path(char *path)
+{
+	int	fd;
+
+	fd = open(path, O_RDONLY);
+	if (fd != -1)
+	{
+		close(fd);
+		return (1);
+	}
+	return (0);
 }
