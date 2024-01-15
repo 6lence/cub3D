@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing_file_texture.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 11:06:34 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/15 08:15:03 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/15 11:48:42 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ char	*ft_get_file(char *str, char *var)
 	int		i;
 	int		j;
 	char	*res;
-	char	*sub;
 
 	i = 0;
 	while (str + i && ft_strncmp(str + i, var, ft_strlen(var)))

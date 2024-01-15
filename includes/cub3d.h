@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:34:43 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/15 10:20:15 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/15 11:49:28 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void	ft_verify_rgb_values(t_data *l);
 		/*  ft_parsing_texture	*/
 int		ft_get_path(char *str, t_data *l, char *var);
 char	*ft_get_file(char *str, char *var);
-void	ft_text_init(t_data *l);
 
 		/*	ft_parsing_map	*/
 int		ft_get_map(t_data *l, char **str);
