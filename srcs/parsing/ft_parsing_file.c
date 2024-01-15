@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:22:58 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/15 13:34:46 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/15 14:45:17 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,9 @@ int	ft_check_map_validity(t_data *l, char **map, int i, int *b)
 	while ((map[i][c] && map[i][c] == 32)
 		|| (map[i][c] > 6 && map[i][c] < 14))
 		c++;
+	ft_check_direction(l, map[i]);
 	if (map[i][c] && (map[i][c] <= 'Z' && map[i][c] >= 'A'))
 		return (0);
-	if (ft_check_direction(l, map[i]))
-		return (1);
 	if (ft_check_ceiling(l, map[i], *b))
 		return (1);
 	*b = *b + 1;
@@ -121,11 +120,16 @@ int	ft_parsing_file(t_data *l)
 	{
 		ft_verif_f_c(l, i);
 		ft_get_texture_variable(l, l->file[i]);
-		if (ft_check_map_validity(l, l->file, i, &b))
-			return (perror("Error: map not valid "), 1);
 		i++;
 	}
 	if (ft_get_map(l, l->file))
 		return (perror("Error: malloc: map "), 1);
+	i = 0;
+	while (l->map[i])
+	{
+		if (ft_check_map_validity(l, l->map, i, &b))
+			return (perror("Error: map not valid "), 1);
+		i++;
+	}
 	return (0);
 }

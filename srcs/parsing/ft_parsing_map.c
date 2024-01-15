@@ -6,13 +6,13 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:45:18 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/15 09:32:43 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/15 14:02:24 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_check_direction(t_data *l, char *map)
+void	ft_check_direction(t_data *l, char *map)
 {
 	int		j;
 
@@ -26,10 +26,6 @@ int	ft_check_direction(t_data *l, char *map)
 			l->pars->direction = map[j];
 		}
 	}
-	if (l->pars->direct_iterations != 0
-		&& l->pars->direct_iterations != 1)
-		return (1);
-	return (0);
 }
 
 int	ft_check_walls(t_data *l, char **map, int c, int b)

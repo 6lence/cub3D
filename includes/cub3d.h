@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:34:43 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/15 13:55:40 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/15 14:43:28 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int		ft_get_map(t_data *l, char **str);
 void	ft_alloc_map(t_data *l, char *str);
 int		ft_check_ceiling(t_data *l, char *map, int i);
 int		ft_check_walls(t_data *l, char **map, int c, int b);
-int		ft_check_direction(t_data *l, char *map);
+void	ft_check_direction(t_data *l, char *map);
 
 		/*	ft_parsing_map_spaces */
 int		ft_check_spaces_proximity(t_data *l, char **str, int i);
