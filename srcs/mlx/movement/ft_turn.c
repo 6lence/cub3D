@@ -6,11 +6,45 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 18:07:55 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/11 10:04:56 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/15 10:32:46 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	ft_look_door(t_data *l)
+{
+	size_t	i;
+	size_t	j;
+	int	res;
+
+	res = 0;
+	i = (size_t)l->cam->py - 1;
+	while (i < (size_t)l->cam->py + 2)
+	{
+		j = (size_t)l->cam->px - 1;
+		while (j < (size_t)l->cam->px + 2)
+		{
+			if (i < (size_t)l->pars->map_len
+				&& j < ft_strlen(l->map[i])
+				&& (i != (size_t)l->cam->py
+				|| j != (size_t)l->cam->px)
+				&& l->map[i][j] == '2')
+				res = 1;
+			j++;
+		}
+		i++;
+	}
+	if (res)
+		l->door *= -1;
+}
+
+int	ft_door(t_data *l, int i, int j)
+{
+	if (l->map[i][j] == '2' && l->door == 1)
+		return (1);
+	return (0);
+}
 
 void	ft_turn_left(t_data *l, t_ray *r)
 {

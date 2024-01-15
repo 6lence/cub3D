@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:34:43 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/11 10:05:17 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/15 10:20:15 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	ft_verify_rgb_values(t_data *l);
 		/*  ft_parsing_texture	*/
 int		ft_get_path(char *str, t_data *l, char *var);
 char	*ft_get_file(char *str, char *var);
+void	ft_text_init(t_data *l);
 
 		/*	ft_parsing_map	*/
 int		ft_get_map(t_data *l, char **str);
@@ -75,6 +76,8 @@ void	ft_movement(t_data *l);
 int		ft_mouse(int x, int y, t_data *l);
 
 		/*	ft_turn	*/
+void	ft_look_door(t_data *l);
+int		ft_door(t_data *l, int i, int j);
 void	ft_turn_left(t_data *l, t_ray *r);
 void	ft_turn_right(t_data *l, t_ray *r);
 

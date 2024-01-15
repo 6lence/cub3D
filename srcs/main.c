@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:35:10 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/10 15:25:10 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/15 10:08:57 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	main(int ac, char **ag)
 	t_data	*l;
 
 	l = ft_calloc(sizeof(t_data), 1);
+	l->door = 1;
 	if (ac != 2 || !ag[1]
 		|| !ft_strcmp(ag[1] + (ft_strlen(ag[1]) - 4), ".cub\0"))
 		return (free(l), printf("Only one argument accepted, format: *.cub\n"));
