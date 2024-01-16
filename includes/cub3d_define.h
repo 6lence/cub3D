@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 09:15:50 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/16 15:02:37 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/16 16:03:54 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@
 # define MINIMAP_PLAYER		0x002B00
 # define MINIMAP_WALL		0xC2B44B
 # define MINIMAP_FLOOR		0x808080
+# define MINIMAP_DOOR		0x8B702C
+# define MINIMAP_START		0x555555
 
 # define NO					0
 # define SO					1
@@ -49,6 +51,7 @@
 
 # define WALL				1
 # define DOOR				2
+# define DOOR_PATH			"textures/porte_3.xpm"
 
 # define TEST				printf("___________TEST_____________\n")
 

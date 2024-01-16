@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 18:44:14 by qbanet            #+#    #+#             */
-/*   Updated: 2024/01/16 15:07:52 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/16 15:29:40 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ void	display_img(t_data *l, int scale, int i)
 
 void	add_door_n_sprites(t_data *l, int i)
 {
-	if (!ft_verif_file_path("textures/porte.xpm"))
+	if (!ft_verif_file_path(DOOR_PATH))
 		return (ft_free_text_tab(l), ft_free(l),
 			printf("ERROR: Texture loading fail\n"), (void) exit(EXIT_SUCCESS));
 	l->textures[i] = ft_calloc(1, sizeof(t_mlximg));
 	l->textures[i]->ptr = mlx_xpm_file_to_image(l->mlx->mlx_ptr,
-			"textures/porte.xpm", &(l->textures[i]->width),
+			DOOR_PATH, &(l->textures[i]->width),
 			&(l->textures[i]->height));
 	l->textures[i]->img_data = (int *)mlx_get_data_addr(l->textures[i]->ptr,
 			&(l->textures[i]->bpp), &(l->textures[i]->line_size),
