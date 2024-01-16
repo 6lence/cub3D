@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:45:18 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/15 14:02:24 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/16 15:08:34 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ int	ft_check_ceiling(t_data *l, char *map, int i)
 			return (1);
 	}
 	return (0);
-
 }
 
 void	ft_alloc_map(t_data *l, char *str)
@@ -79,10 +78,10 @@ void	ft_alloc_map(t_data *l, char *str)
 		return ;
 	i = 0;
 	while (str[i] && (str[i] == '1'
-		|| str[i] == '0' || str[i] == 'N'
-		|| str[i] == 'S' || str[i] == 'W'
-		|| str[i] == 'E' || str[i] == 32
-		|| (str[i] < 14 && str[i] > 6)))
+			|| str[i] == '0' || str[i] == 'N'
+			|| str[i] == 'S' || str[i] == 'W'
+			|| str[i] == 'E' || str[i] == 32
+			|| (str[i] < 14 && str[i] > 6)))
 		i++;
 	l->map[l->pars->pos++] = ft_strdup(str);
 }

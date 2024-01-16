@@ -3,16 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_struct.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:35:31 by qbanet            #+#    #+#             */
-/*   Updated: 2024/01/16 12:56:58 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/16 15:04:53 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_STRUCT_H
 # define CUB3D_STRUCT_H
 
+typedef struct s_disp_img
+{
+	int	x;
+	int	y;
+	int	pos;
+	int	start_x;
+	int	start_y;
+	int	k;
+}	t_disp_img;
 typedef struct s_rgb
 {
 	int	r;
@@ -20,7 +29,6 @@ typedef struct s_rgb
 	int	b;
 	int	couleur;
 }	t_rgb;
-
 
 typedef struct s_tex
 {
@@ -49,7 +57,7 @@ typedef struct s_mlxdata
 
 typedef struct s_mlximg
 {
-	void			*img_ptr;
+	void			*ptr;
 	int				*img_data;
 	int				bpp;
 	int				endian;

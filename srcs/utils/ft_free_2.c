@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 08:46:41 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/15 14:23:29 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/16 14:55:11 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ void	ft_free_text_tab(t_data *l)
 	i = -1;
 	while (++i < NB_TEXTURES)
 	{
-		if (l->mlx->mlx_ptr && l->textures[i] && l->textures[i]->img_ptr)
-			mlx_destroy_image(l->mlx->mlx_ptr, l->textures[i]->img_ptr);
+		if (l->mlx->mlx_ptr && l->textures[i] && l->textures[i]->ptr)
+			mlx_destroy_image(l->mlx->mlx_ptr, l->textures[i]->ptr);
 		free(l->textures[i]);
 	}
 	free(l->textures);

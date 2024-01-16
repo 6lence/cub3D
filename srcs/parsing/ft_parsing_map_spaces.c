@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing_map_spaces.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 13:30:51 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/15 14:40:39 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/16 15:08:43 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	ft_check_prox_floor(char **str, int i, size_t *j)
 		|| (str[i + 1][*j]
 		&& ft_direction_floor(str[i + 1][*j])))
 		return (1);
-	return (0);	
+	return (0);
 }
 
 int	ft_check_spaces_proximity(t_data *l, char **str, int i)

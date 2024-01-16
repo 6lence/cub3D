@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:34:43 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/16 13:08:04 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/16 15:04:03 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,9 +140,7 @@ void	ft_main_loop(t_data *l, t_ray *r);
 		/*	textures	*/
 void	add_door_n_sprites(t_data *l, int i);
 int		select_text(t_data *l);
-
-		/*	sprites	*/
-void	display_sprite(t_data *l);
+void	display_img(t_data *l, int scale, int i);
 
 		/*	ft_create_struct	*/
 t_point	ft_point_st(int i, int j);

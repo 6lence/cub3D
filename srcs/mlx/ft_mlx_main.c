@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mlx_main.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:08:27 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/16 13:07:18 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/16 14:53:34 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@ static void	ft_text_init(t_data *l)
 	while (++i < NB_TEXTURES_MUR)
 	{
 		if (!ft_verif_file_path(l->tex->text_path[i]))
-			return (ft_free_text_tab(l), ft_free(l), printf("ERROR: Texture loading fail\n"), (void) exit(EXIT_SUCCESS));
+			return (ft_free_text_tab(l), ft_free(l),
+				printf("ERROR: Texture loading fail\n"),
+				(void) exit(EXIT_SUCCESS));
 		l->textures[i] = ft_calloc(1, sizeof(t_mlximg));
-		l->textures[i]->img_ptr = mlx_xpm_file_to_image(l->mlx->mlx_ptr,
+		l->textures[i]->ptr = mlx_xpm_file_to_image(l->mlx->mlx_ptr,
 				l->tex->text_path[i], &(l->textures[i]->width),
 				&(l->textures[i]->height));
-		l->textures[i]->img_data = (int *)mlx_get_data_addr(l->textures[i]->img_ptr,
+		l->textures[i]->img_data = (int *)mlx_get_data_addr(l->textures[i]->ptr,
 				&(l->textures[i]->bpp), &(l->textures[i]->line_size),
 				&(l->textures[i]->endian));
 	}
@@ -76,7 +78,7 @@ void	ft_init_image_rgb(t_data *l)
 	l->cam->walls_p->g = 0;
 	l->cam->walls_p->b = 0;
 	l->cam->walls_p->couleur = (l->cam->walls_p->r << 16)
-			| (l->cam->walls_p->g << 8) | l->cam->walls_p->b;
+		| (l->cam->walls_p->g << 8) | l->cam->walls_p->b;
 }
 
 int	ft_mlx_part(t_data *l)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 12:30:08 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/15 08:36:33 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/16 15:09:36 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	ft_free(t_data *l)
 		if (l->player)
 			ft_free_player(l->player);
 		if (l->ray)
-				free(l->ray);
+			free(l->ray);
 		if (l->mlx)
 			ft_free_mlx(l->mlx);
 		free(l);

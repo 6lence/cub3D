@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mouse.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:50:19 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/11 10:10:38 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/16 15:02:06 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_mouse(int x, int y, t_data *l)
 			l->dep->l = 1;
 		l->mlx->mmove = 1;
 		mlx_mouse_move(l->mlx->mlx_ptr, l->mlx->win_ptr,
-					l->mlx->win_w / 2, l->mlx->win_h / 2);
+			l->mlx->win_w / 2, l->mlx->win_h / 2);
 	}
 	else
 		mlx_mouse_show(l->mlx->mlx_ptr, l->mlx->win_ptr);

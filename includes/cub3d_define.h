@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_define.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 09:15:50 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/15 11:02:00 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/16 15:02:37 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define MS					0.025
 # define MOV				0.1
 # define TEXTURE_SIZE		128
+# define SPRITE_SIZE		64
 
 # define NB_TEXTURES		21
 # define NB_TEXTURES_SPRITE	16

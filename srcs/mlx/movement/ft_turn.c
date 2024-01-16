@@ -3,45 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_turn.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 18:07:55 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/16 13:01:58 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/16 15:03:33 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-int SPRITE_SIZE = 64;
-
-void display_img(t_data *l, int scale, int i)
-{
-	int	x;
-	int	y;
-	int	pos;
-	int	start_x;
-	int	start_y;
-	int	k;
-
-	pos = 0;
-
-	start_x = (l->mlx->win_h - (SPRITE_SIZE * scale)) / 2;
-	start_y = (l->mlx->win_w - (SPRITE_SIZE * scale)) / 2;
-
-	x = start_x;
-	while (x++ < start_x + (SPRITE_SIZE * scale))
-	{
-		y = start_y;
-		while (y++ < start_y + SPRITE_SIZE * scale)
-		{
-			k = x;
-			while (k < x + 12)
-				ft_put_pixel(l, l->textures[i]->img_data[pos], k++, y);
-			if (x % scale == 0 && y % scale == 0)
-				pos ++;
-		}
-	}
-}
 
 void	ft_sprite(t_data *l, int i, int j)
 {
@@ -75,7 +44,7 @@ void	ft_look_door(t_data *l)
 			if (i < (size_t)l->pars->map_len
 				&& j < ft_strlen(l->map[i])
 				&& (i != (size_t)l->cam->py
-				|| j != (size_t)l->cam->px)
+					|| j != (size_t)l->cam->px)
 				&& (l->map[i][j] == '2'
 				|| l->map[i][j] == '3'))
 				ft_sprite(l, i, j);
