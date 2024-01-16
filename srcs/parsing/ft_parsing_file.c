@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:22:58 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/15 14:45:17 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/16 15:32:39 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,66 +70,52 @@ void	ft_verif_f_c(t_data *l, int i)
 	err = 0;
 	while (l->file[i][j] && !err)
 	{
-		if ((ft_strncmp(l->file[i] + j, "F", 1)
-				|| ft_strncmp(l->file[i] + j, "C", 1))
+		if (l->file[i][j] && (l->file[i][j] == 'F'
+			|| l->file[i][j] == 'C')
 			&& l->file[i][j + 1] && l->file[i][j + 2]
 			&& l->file[i][j + 1] && l->file[i][j + 1] == ' '
-			&& l->file[i][j + 2] < '9' && l->file[i][j + 2] > '0')
+			&& l->file[i][j + 2] <= '9' && l->file[i][j + 2] >= '0')
 			err = ft_get_rgb(l->file[i], l, l->file[i][j]);
 		j++;
 	}
 	l->ft_err = err;
 }
 
-void	ft_get_map_len(t_data *l, char *str)
+void	ft_get_map_len(t_data *l)
 {
+	int	j;
 	int	i;
 
-	i = 0;
-	while (str[i] == 32 || (str[i] > 6 && str[i] < 14))
-		i++;
-	if (str[i] && (str[i] <= 'Z' && str[i] >= 'A'))
-		return ;
-	i = 0;
-	while (str[i] && (str[i] == '1'
-			|| str[i] == '0' || str[i] == 'N'
-			|| str[i] == 'S' || str[i] == 'W'
-			|| str[i] == 'E' || str[i] == 32
-			|| str[i] == '2'
-			|| (str[i] < 14 && str[i] > 6)))
-		i++;
-	l->pars->map_len++;
+	i = l->file_end;
+	while (l->file[i])
+	{
+		j = 0;
+		while (l->file[i][j] == 32)
+			j++;
+		if (l->file[i][j] != '1')
+			return ;
+		i--;
+	}
+	l->map_beg = i + 1;
+	l->pars->map_len = l->file_end - l->map_beg;
 }
 
 int	ft_parsing_file(t_data *l)
 {
 	int	i;
-	int	b;
 
-	l->ft_err = 0;
-	l->pars->pos = 0;
-	ft_verify_rgb_values(l);
-	l->tex->text_path = ft_calloc(NB_TEXTURES_MUR + 1, sizeof(char *));
+	ft_init_c_f_values(l);
 	i = 0;
-	while (l->file[i])
-		ft_get_map_len(l, l->file[i++]);
-	i = 0;
-	l->pars->direct_iterations = 0;
-	b = 0;
 	while (l->file[i] && !l->ft_err)
 	{
-		ft_verif_f_c(l, i);
 		ft_get_texture_variable(l, l->file[i]);
+		ft_verif_f_c(l, i);
 		i++;
 	}
+	l->file_end = i - 1;
+	if (l->ea > 1 || l->we > 1 || l->so > 1 || l->no > 1)
+		return (perror("Too many textures"), ft_free(l), 1);
 	if (ft_get_map(l, l->file))
 		return (perror("Error: malloc: map "), 1);
-	i = 0;
-	while (l->map[i])
-	{
-		if (ft_check_map_validity(l, l->map, i, &b))
-			return (perror("Error: map not valid "), 1);
-		i++;
-	}
 	return (0);
 }

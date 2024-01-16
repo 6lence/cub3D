@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:45:18 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/16 15:08:34 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/16 15:35:14 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,11 +89,22 @@ void	ft_alloc_map(t_data *l, char *str)
 int	ft_get_map(t_data *l, char **str)
 {
 	int	i;
+	int	b;
 
-	i = 0;
+	i = l->map_beg;
+	ft_get_map_len(l);
 	l->map = ft_calloc(sizeof(char *), l->pars->map_len + 1);
-	while (str[i])
+	while (i < l->file_end
+			&& !ft_checher_lespace_dans_mon_coeur(str[i]))
 		ft_alloc_map(l, str[i++]);
 	l->map[l->pars->pos] = NULL;
+	i = 0;
+	b = 0;
+	while (l->map[i])
+	{
+		if (ft_check_map_validity(l, l->map, i, &b))
+			return (perror("Error: map not valid "), 1);
+		i++;
+	}
 	return (0);
 }

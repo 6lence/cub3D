@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing_file_rgb.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 20:54:06 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/13 11:57:07 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/16 15:21:11 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_verify_rgb_values(t_data *l)
+void	ft_init_c_f_values(t_data *l)
 {
 	l->tex->C->r = 119;
 	l->tex->C->g = 181;
@@ -46,11 +46,11 @@ void	ft_affect(t_data *l, char *str, int i, char letter)
 		while (str[i] && str[i] != ',')
 			i++;
 		i++;
-		l->tex->C->g = ft_atoi(str + i + 1);
+		l->tex->C->g = ft_atoi(str + i);
 		while (str[i] && str[i] != ',')
 			i++;
 		i++;
-		l->tex->C->b = ft_atoi(str + i + 1);
+		l->tex->C->b = ft_atoi(str + i);
 		l->tex->C->couleur = (l->tex->C->r << 16) | (l->tex->C->g << 8)
 			| l->tex->C->b;
 	}
@@ -61,7 +61,7 @@ int	ft_get_rgb(char *str, t_data *l, char letter)
 	int	i;
 
 	i = 0;
-	while (str[i] && !(str[i] < '9' && str[i] > '0'))
+	while (str[i] && !(str[i] <= '9' && str[i] >= '0'))
 		i++;
 	ft_affect(l, str, i, letter);
 	return (0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_struct.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:35:31 by qbanet            #+#    #+#             */
-/*   Updated: 2024/01/16 15:04:53 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/16 15:36:25 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,6 +181,12 @@ typedef struct s_data
 	int						esc;
 	int						door;
 	int						esp;
+	int						no;
+	int						so;
+	int						we;
+	int						ea;
+	int						file_end;
+	int						map_beg;
 	t_mlximg				**textures;
 	struct s_mlxdata		*mlx;
 	struct s_camera			*cam;
