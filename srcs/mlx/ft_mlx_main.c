@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mlx_main.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:08:27 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/16 15:37:01 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/16 18:23:44 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	ft_mlx_part(t_data *l)
 	ft_init_mlx_values(l);
 	l->mlx->mlx_ptr = mlx_init();
 	l->mlx->win_ptr = mlx_new_window(l->mlx->mlx_ptr, l->mlx->win_w,
-	l->mlx->win_h, WIN_NAME);
+			l->mlx->win_h, WIN_NAME);
 	ft_init_image_rgb(l);
 	ft_text_init(l);
 	ft_image(l);

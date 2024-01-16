@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing_file.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:22:58 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/16 15:32:39 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/16 19:09:50 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_check_map_validity(t_data *l, char **map, int i, int *b)
 	while ((map[i][c] && map[i][c] == 32)
 		|| (map[i][c] > 6 && map[i][c] < 14))
 		c++;
-	ft_check_direction(l, map[i]);
+	ft_check_direction(l, map[i], i);
 	if (map[i][c] && (map[i][c] <= 'Z' && map[i][c] >= 'A'))
 		return (0);
 	if (ft_check_ceiling(l, map[i], *b))
@@ -93,10 +93,10 @@ void	ft_get_map_len(t_data *l)
 		while (l->file[i][j] == 32)
 			j++;
 		if (l->file[i][j] != '1')
-			return ;
+			break ;
 		i--;
 	}
-	l->map_beg = i + 1;
+	l->map_beg = i;
 	l->pars->map_len = l->file_end - l->map_beg;
 }
 
@@ -116,6 +116,6 @@ int	ft_parsing_file(t_data *l)
 	if (l->ea > 1 || l->we > 1 || l->so > 1 || l->no > 1)
 		return (perror("Too many textures"), ft_free(l), 1);
 	if (ft_get_map(l, l->file))
-		return (perror("Error: malloc: map "), 1);
+		return (ft_free(l), 1);
 	return (0);
 }

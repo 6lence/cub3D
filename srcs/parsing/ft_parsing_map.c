@@ -3,27 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:45:18 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/16 15:35:14 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/16 19:09:44 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_check_direction(t_data *l, char *map)
+void	ft_check_direction(t_data *l, char *map, int i)
 {
 	int		j;
 
 	j = -1;
 	while (map[++j])
 	{
-		if (map[j] == 'N' || map[j] == 'S'
-			|| map[j] == 'E' || map[j] == 'W')
+		if ((map[j] == 'N' || map[j] == 'S'
+				|| map[j] == 'E' || map[j] == 'W'))
 		{
 			l->pars->direct_iterations++;
 			l->pars->direction = map[j];
+			l->pars->dir_x = i;
+			l->pars->dir_y = j;
 		}
 	}
 }
@@ -94,8 +96,7 @@ int	ft_get_map(t_data *l, char **str)
 	i = l->map_beg;
 	ft_get_map_len(l);
 	l->map = ft_calloc(sizeof(char *), l->pars->map_len + 1);
-	while (i < l->file_end
-			&& !ft_checher_lespace_dans_mon_coeur(str[i]))
+	while (i < l->file_end + 1)
 		ft_alloc_map(l, str[i++]);
 	l->map[l->pars->pos] = NULL;
 	i = 0;
@@ -106,5 +107,7 @@ int	ft_get_map(t_data *l, char **str)
 			return (perror("Error: map not valid "), 1);
 		i++;
 	}
+	if (l->pars->direct_iterations != 1)
+		return (perror("Error: map not valid "), 1);
 	return (0);
 }

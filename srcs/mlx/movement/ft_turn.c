@@ -6,13 +6,13 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 18:07:55 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/16 15:03:33 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/16 18:21:57 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_sprite(t_data *l, int i, int j)
+void	ft_sprite(t_data *l, int i, int j, int o)
 {
 	int	k;
 
@@ -21,11 +21,13 @@ void	ft_sprite(t_data *l, int i, int j)
 	else
 		l->map[i][j] = '2';
 	k = 5;
-	while (k < NB_TEXTURES)
+	if (o == 0)
 	{
-		ft_refresh(l);
-		display_img(l, 12, k);
-		k++;
+		while (k < NB_TEXTURES)
+		{
+			ft_refresh(l);
+			display_img(l, 12, k++);
+		}
 	}
 	ft_refresh(l);
 }
@@ -34,7 +36,9 @@ void	ft_look_door(t_data *l)
 {
 	size_t	i;
 	size_t	j;
+	int		k;
 
+	k = 0;
 	i = (size_t)l->cam->py - 1;
 	while (i < (size_t)l->cam->py + 2)
 	{
@@ -47,7 +51,7 @@ void	ft_look_door(t_data *l)
 					|| j != (size_t)l->cam->px)
 				&& (l->map[i][j] == '2'
 				|| l->map[i][j] == '3'))
-				ft_sprite(l, i, j);
+				ft_sprite(l, i, j, k ++);
 			j++;
 		}
 		i++;
