@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing_file.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:22:58 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/17 11:16:26 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/17 13:31:18 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	ft_check_map_validity(t_data *l, char **map, int i, int *b)
 	while ((map[i][c] && map[i][c] == 32)
 		|| (map[i][c] > 6 && map[i][c] < 14))
 		c++;
-	ft_check_direction(l, map[i], i);
 	if (map[i][c] && (map[i][c] <= 'Z' && map[i][c] >= 'A'))
-		return (0);
+		return (1);
+	ft_check_direction(l, map[i], i);
 	if (ft_check_ceiling(l, map[i], *b))
 		return (1);
 	*b = *b + 1;
@@ -83,24 +83,13 @@ void	ft_verif_f_c(t_data *l, int i)
 
 void	ft_get_map_len(t_data *l)
 {
-	int	j;
 	int	i;
 
 	i = l->file_end;
-	while (l->file[i])
-	{
-		j = 0;
-		if (is_empty_line(l->file[i]))
-			break ;
-		while (l->file[i][j] == 32)
-			j++;
-		if (l->file[i][j] != '1' && !is_map_line(&(l->file[i][j + 1])))
-			break ;
+	while (is_map_line(l->file[i]))
 		i--;
-	}
 	l->map_beg = i;
 	l->pars->map_len = l->file_end - l->map_beg;
-	printf("map len = %d\n", l->pars->map_len);
 }
 
 int	ft_parsing_file(t_data *l)
@@ -118,7 +107,7 @@ int	ft_parsing_file(t_data *l)
 	l->file_end = i - 1;
 	if (l->ea > 1 || l->we > 1 || l->so > 1 || l->no > 1)
 		return (perror("Too many textures"), ft_free(l), 1);
-	if (ft_get_map(l, l->file))
+	if (ft_get_map(l))
 		return (ft_free(l), 1);
 	return (0);
 }

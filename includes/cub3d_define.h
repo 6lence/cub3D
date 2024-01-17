@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_define.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 09:15:50 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/17 10:58:43 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/17 14:12:51 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define MOV				0.1
 # define TEXTURE_SIZE		128
 # define SPRITE_SIZE		64
+# define MINIMAP_RADIUS		4.5
 
 # define NB_TEXTURES		21
 # define NB_TEXTURES_SPRITE	16
@@ -41,7 +42,7 @@
 # define GROUND_COLOR		0xb68a2e
 
 # define MINIMAP_BACKGROUND	0x555B61
-# define MINIMAP_PLAYER		0x002B00
+# define MINIMAP_PLAYER		0x5C2B00
 # define MINIMAP_WALL		0xC2B44B
 # define MINIMAP_FLOOR		0x808080
 # define MINIMAP_DOOR		0x8B702C

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_create_struct.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:39:08 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/17 11:04:11 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/17 10:40:00 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ t_bool	is_empty_line(char *line)
 	while (*line)
 	{
 		if (!ft_is_whithspace(*line))
-			return (printf("FALSE -> %s|\n", line), FALSE);
+			return (FALSE);
 		line ++;
 	}
-	return (printf("TRUE -> %s|\n", line), TRUE);
+	return (TRUE);
 }
 
 t_bool	is_map_line(char *line)

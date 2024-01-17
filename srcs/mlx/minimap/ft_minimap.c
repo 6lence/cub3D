@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 12:55:01 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/02 08:30:07 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/17 14:17:42 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	ft_map_coordinates(t_data *l)
 	l->mini->mapyo = l->mlx->win_h / 40 * 10;
 	l->mini->mapxb = l->mini->mapx;
 	l->mini->mapyb = l->mini->mapy;
-	l->mini->mapsy = 17;
 	l->mini->mapsx = 18;
+	l->mini->mapsy = l->mini->mapsx - 1;
 }
 
 void	ft_init_minimap_values(t_data *l)

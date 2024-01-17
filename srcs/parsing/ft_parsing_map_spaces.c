@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing_map_spaces.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 13:30:51 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/16 15:08:43 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/17 12:52:49 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_direction_space(char c)
 {
-	if (c != '1' && c != ' ')
+	if (!c || (c != '1' && c != ' '))
 		return (1);
 	return (0);
 }
@@ -24,18 +24,20 @@ int	ft_check_proximity(char **str, int i, size_t *j)
 	if ((str[i][*j - 1]
 		&& ft_direction_space(str[i][*j - 1]))
 		|| (str[i][*j + 1]
-		&& ft_direction_space(str[i][*j + 1]))
-		|| (str[i - 1][*j]
-		&& ft_direction_space(str[i - 1][*j]))
-		|| (str[i + 1][*j]
-		&& ft_direction_space(str[i + 1][*j])))
+		&& ft_direction_space(str[i][*j + 1])))
 		return (1);
+	if (*j < ft_strlen(str[i + 1])
+		&& ft_direction_space(str[i + 1][*j]))
+			return (1);
+	if (*j < ft_strlen(str[i - 1])
+		&& ft_direction_space(str[i - 1][*j]))
+		return (1);	
 	return (0);
 }
 
 static int	ft_direction_floor(char c)
 {
-	if (c != ' ' && c != '1'
+	if (c != '1'
 		&& c != '2' && c != '0'
 		&& c != 'N' && c != 'W'
 		&& c != 'E' && c != 'S')
@@ -45,18 +47,21 @@ static int	ft_direction_floor(char c)
 
 int	ft_check_prox_floor(char **str, int i, size_t *j)
 {
-	if (!str[i][*j - 1] || !str[i][*j + 1]
-		|| !str[i + 1][*j] || !str[i - 1][*j])
+	if ((!str[i - 1] || !str[i + 1])
+		|| (str[i - 1] && *j >= ft_strlen(str[i - 1]))
+		|| (str[i + 1] && *j >= ft_strlen(str[i + 1])))
 		return (1);
 	if ((str[i][*j - 1]
 		&& ft_direction_floor(str[i][*j - 1]))
 		|| (str[i][*j + 1]
-		&& ft_direction_floor(str[i][*j + 1]))
-		|| (str[i - 1][*j]
-		&& ft_direction_floor(str[i - 1][*j]))
-		|| (str[i + 1][*j]
-		&& ft_direction_floor(str[i + 1][*j])))
+		&& ft_direction_floor(str[i][*j + 1])))
 		return (1);
+	if (*j < ft_strlen(str[i + 1])
+		&& ft_direction_floor(str[i + 1][*j]))
+			return (1);
+	if (*j < ft_strlen(str[i - 1])
+		&& ft_direction_floor(str[i - 1][*j]))
+		return (1);	
 	return (0);
 }
 
@@ -73,10 +78,13 @@ int	ft_check_spaces_proximity(t_data *l, char **str, int i)
 		if (str[i][j] == ' ')
 			if (ft_check_proximity(str, i, &j))
 				return (1);
-		if (str[i][j] == '0' || str[i][j] == '2')
+		if (str[i][j] == '0' || str[i][j] == '2'
+			|| str[i][j] == 'N' || str[i][j] == 'E'
+			|| str[i][j] == 'W' || str[i][j] == 'S')
 			if (ft_check_prox_floor(str, i, &j))
 				return (1);
 		j++;
 	}
+
 	return (0);
 }

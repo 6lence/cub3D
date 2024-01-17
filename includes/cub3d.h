@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:34:43 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/17 11:00:41 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/17 13:26:26 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,14 @@ int		ft_get_path(char *str, t_data *l, char *var);
 char	*ft_get_file(char *str, char *var);
 
 		/*	ft_parsing_map	*/
-int		ft_get_map(t_data *l, char **str);
-void	ft_alloc_map(t_data *l, char *str);
+int		ft_get_map(t_data *l);
+void	ft_alloc_map(t_data *l);
 int		ft_check_ceiling(t_data *l, char *map, int i);
 int		ft_check_walls(t_data *l, char **map, int c, int b);
 void	ft_check_direction(t_data *l, char *map, int i);
 
 		/*	ft_parsing_map_spaces */
+int		ft_check_prox_floor(char **str, int i, size_t *j);
 int		ft_check_spaces_proximity(t_data *l, char **str, int i);
 int		ft_check_proximity(char **str, int i, size_t *j);
 

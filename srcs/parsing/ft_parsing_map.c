@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:45:18 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/16 19:30:31 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/17 13:46:25 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,45 +69,35 @@ int	ft_check_ceiling(t_data *l, char *map, int i)
 	return (0);
 }
 
-void	ft_alloc_map(t_data *l, char *str)
+void	ft_alloc_map(t_data *l)
 {
 	int	i;
 
-	i = 0;
-	while (str[i] == 32 || (str[i] > 6 && str[i] < 14))
-		i++;
-	if (str[i] && (str[i] <= 'Z' && str[i] >= 'A'))
-		return ;
-	i = 0;
-	while (str[i] && (str[i] == '1'
-			|| str[i] == '0' || str[i] == 'N'
-			|| str[i] == 'S' || str[i] == 'W'
-			|| str[i] == 'E' || str[i] == 32
-			|| (str[i] < 14 && str[i] > 6)))
-		i++;
-	l->map[l->pars->pos++] = ft_strdup(str);
+	i = l->map_beg + 1;
+	while (l->file[i])
+		l->map[l->pars->pos++] = ft_strdup(l->file[i++]);
 }
 
-int	ft_get_map(t_data *l, char **str)
+int	ft_get_map(t_data *l)
 {
-	int	i;
-	int	b;
+	int		i;
+	size_t	j;
 
-	i = l->map_beg;
 	ft_get_map_len(l);
 	l->map = ft_calloc(sizeof(char *), l->pars->map_len + 1);
-	while (i < l->file_end + 1)
-		ft_alloc_map(l, str[i++]);
+	ft_alloc_map(l);
 	l->map[l->pars->pos] = NULL;
 	i = 0;
-	b = 0;
 	while (l->map[i])
 	{
-		if (ft_check_map_validity(l, l->map, i, &b))
+		if (!is_map_line(l->map[i]))
 			return (perror("Error: map not valid "), 1);
+		ft_check_direction(l, l->map[i], i);
 		i++;
 	}
-	if (l->pars->direct_iterations != 1)
+	j = l->pars->dir_y;
+	if (l->pars->direct_iterations != 1
+		|| ft_check_prox_floor(l->map, l->pars->dir_x, &j))
 		return (perror("Error: map not valid "), 1);
 	return (0);
 }
