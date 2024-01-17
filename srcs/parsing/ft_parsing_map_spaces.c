@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 13:30:51 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/17 12:52:49 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/17 15:32:04 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ int	ft_check_proximity(char **str, int i, size_t *j)
 		return (1);
 	if (*j < ft_strlen(str[i + 1])
 		&& ft_direction_space(str[i + 1][*j]))
-			return (1);
+		return (1);
 	if (*j < ft_strlen(str[i - 1])
 		&& ft_direction_space(str[i - 1][*j]))
-		return (1);	
+		return (1);
 	return (0);
 }
 
@@ -58,10 +58,10 @@ int	ft_check_prox_floor(char **str, int i, size_t *j)
 		return (1);
 	if (*j < ft_strlen(str[i + 1])
 		&& ft_direction_floor(str[i + 1][*j]))
-			return (1);
+		return (1);
 	if (*j < ft_strlen(str[i - 1])
 		&& ft_direction_floor(str[i - 1][*j]))
-		return (1);	
+		return (1);
 	return (0);
 }
 
@@ -85,6 +85,5 @@ int	ft_check_spaces_proximity(t_data *l, char **str, int i)
 				return (1);
 		j++;
 	}
-
 	return (0);
 }

@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_struct.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:35:31 by qbanet            #+#    #+#             */
-/*   Updated: 2024/01/17 10:55:57 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/17 15:39:28 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_STRUCT_H
 # define CUB3D_STRUCT_H
 
-typedef int t_bool;
+typedef int	t_bool;
 
 typedef struct s_disp_img
 {
@@ -35,8 +35,8 @@ typedef struct s_rgb
 typedef struct s_tex
 {
 	char			**text_path;
-	t_rgb			*F;
-	t_rgb			*C;
+	t_rgb			*f;
+	t_rgb			*c;
 }	t_tex;
 
 typedef struct s_pars
@@ -167,13 +167,13 @@ typedef struct s_ray
 
 typedef struct s_dep
 {
-	int w;
-	int a;
-	int s;
-	int d;
-	int l;
-	int r;
-	int f;
+	int	w;
+	int	a;
+	int	s;
+	int	d;
+	int	l;
+	int	r;
+	int	f;
 	int	b;
 }	t_dep;
 typedef struct s_data

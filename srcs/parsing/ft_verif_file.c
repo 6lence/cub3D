@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_verif_file.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:38:23 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/17 11:26:02 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/17 15:34:27 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
 
 int	ft_open_file(t_data *l, char *s)
 {

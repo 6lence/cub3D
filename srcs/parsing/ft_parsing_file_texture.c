@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 11:06:34 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/16 14:22:08 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/17 15:34:38 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,3 @@ int	ft_get_path(char *str, t_data *l, char *var)
 		return (1);
 	return (0);
 }
-

@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 09:15:50 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/17 14:12:51 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/17 15:37:28 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,5 @@
 # define WALL				1
 # define DOOR				2
 # define DOOR_PATH			"textures/porte_3.xpm"
-
-# define TEST				printf("___________TEST_____________\n")
 
 #endif

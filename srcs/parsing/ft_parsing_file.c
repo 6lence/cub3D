@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:22:58 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/17 13:31:18 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/17 15:33:00 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	ft_get_texture_variable(t_data *l, char *str)
 {
 	int	j;
 
-	j = 0;
-	while (str[j] && !l->ft_err)
+	j = -1;
+	while (str[++j] && !l->ft_err)
 	{
 		if (!str + j - 1 && str + j && str + j + 1)
 		{
@@ -57,7 +57,6 @@ void	ft_get_texture_variable(t_data *l, char *str)
 					|| *str + j == ' '))
 				l->ft_err = ft_get_path(str, l, "EA");
 		}
-		j++;
 	}
 }
 

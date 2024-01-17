@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_raycasting_main_loop.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
+/*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 09:10:41 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/16 18:18:14 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/17 15:35:53 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ void	ft_color(t_ray *r, t_data *l, int x)
 	x += 0;
 	y = l->ray->draw_start;
 	l->ray->step = 1.0 * TEXTURE_SIZE / l->ray->line_h;
-	l->ray->texpos = (l->ray->draw_start - WIN_H / 2 + l->ray->line_h / 2) * l->ray->step;
+	l->ray->texpos = (l->ray->draw_start - WIN_H / 2 + l->ray->line_h / 2)
+		* l->ray->step;
 	while (y <= l->ray->draw_end)
 	{
 		l->ray->text_y = (int)l->ray->texpos & (TEXTURE_SIZE - 1);

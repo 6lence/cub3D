@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 12:55:01 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/17 14:17:42 by mescobar         ###   ########.fr       */
+/*   Updated: 2024/01/17 15:36:26 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 void	ft_map_colors(t_data *l)
 {
 	if (!l->mini->wall)
-	l->mini->wall = ft_calloc(1, sizeof(t_rgb));
+		l->mini->wall = ft_calloc(1, sizeof(t_rgb));
 	l->mini->wall->r = 46;
 	l->mini->wall->g = 134;
 	l->mini->wall->b = 193;
 	if (!l->mini->back)
-	l->mini->back = ft_calloc(1, sizeof(t_rgb));
+		l->mini->back = ft_calloc(1, sizeof(t_rgb));
 	l->mini->back->r = 28;
 	l->mini->back->g = 40;
 	l->mini->back->b = 51;
