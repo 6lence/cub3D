@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:22:58 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/16 19:09:50 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/17 10:49:13 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	ft_get_map_len(t_data *l)
 		j = 0;
 		while (l->file[i][j] == 32)
 			j++;
-		if (l->file[i][j] != '1')
+		if (l->file[i][j] != '1' && !is_map_line(&(l->file[i][j + 1])))
 			break ;
 		i--;
 	}
