@@ -6,7 +6,7 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 00:34:43 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/17 10:40:44 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/17 11:00:41 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,9 @@ void	display_img(t_data *l, int scale, int i);
 
 		/*	ft_create_struct	*/
 t_point	ft_point_st(int i, int j);
-int		ft_verif_file_path(char *path);
-int		is_map_line(char *line);
+t_bool	ft_verif_file_path(char *path);
+t_bool	is_map_line(char *line);
+t_bool	is_empty_line(char *line);
+t_bool	ft_is_whithspace(char c);
 
 #endif

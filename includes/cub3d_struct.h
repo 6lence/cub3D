@@ -6,12 +6,14 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 20:35:31 by qbanet            #+#    #+#             */
-/*   Updated: 2024/01/16 18:43:54 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/17 10:55:57 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_STRUCT_H
 # define CUB3D_STRUCT_H
+
+typedef int t_bool;
 
 typedef struct s_disp_img
 {

@@ -6,12 +6,15 @@
 /*   By: qbanet <qbanet@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 09:15:50 by mescobar          #+#    #+#             */
-/*   Updated: 2024/01/16 16:03:54 by qbanet           ###   ########.fr       */
+/*   Updated: 2024/01/17 10:58:43 by qbanet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_DEFINE_H
 # define CUB3D_DEFINE_H
+
+# define TRUE				1
+# define FALSE				0
 
 # define WIN_NAME			"|-CUB3DMONGARRRRRRRS-|"
 # define WIN_W				1080
